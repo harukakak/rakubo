@@ -4,11 +4,14 @@
   <%# 画面上部の帯部分 %>
   <div class='title-contents'>
     <h2 class='service-title'>
-      楽々貯金ができる管理簿アプリ
+      楽々貯金ができる家計簿アプリ
     </h2>
     <p class='service-explain'>
       ラクボで楽々貯金を始めよう
     </p>
+    <h1 class='service-money'>
+    現在の貯金額：<%= '0' %>円
+    </h1>
   </div>
   <%# /画面上部の帯部分  %>
 
@@ -74,6 +77,6 @@
 </div>
 <%= link_to('#', class: 'purchase-btn') do %>
   <span class='purchase-btn-text'>投稿する</span>
-  <%= image_tag 'pochacco.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+  <%= image_tag 'stationery.png' , size: '185x50' ,class: "purchase-btn-icon" %>
 <% end %>
 <%= render "shared/footer" %>
