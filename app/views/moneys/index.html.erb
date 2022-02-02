@@ -1,0 +1,79 @@
+<%= render "shared/header" %>
+<div class='main'>
+
+  <%# 画面上部の帯部分 %>
+  <div class='title-contents'>
+    <h2 class='service-title'>
+      楽々貯金ができる管理簿アプリ
+    </h2>
+    <p class='service-explain'>
+      ラクボで楽々貯金を始めよう
+    </p>
+  </div>
+  <%# /画面上部の帯部分  %>
+
+  <%# ラクボの特徴 %>
+  <div class='feature-contents'>
+    <h2 class='title'>
+      ラクボの特徴
+    </h2>
+    <ul class='feature-lists'>
+      <li class='list'>
+        <%= image_tag "coin_medal_bronze.png", class:"list-pict" %>
+        <h3 class='feature-list-text'>
+          確実に貯金ができる
+        </h3>
+        <p class='feature-list-description'>
+          事前に貯金額を決めるので、計画的にお金が貯まっていく仕組み！
+        </p>
+      </li>
+      <li class='list'>
+        <%= image_tag "calender_schedule_empty.png", class:"list-pict" %>
+        <h3 class='feature-list-text'>
+          お金の管理は月一だけ
+        </h3>
+        <p class='feature-list-description'>
+          毎日書く家計簿とは違い、月に一回の管理だけ！
+        </p>
+      </li>
+      <li class='list'>
+        <%= image_tag "bunbougu_dentaku.png", class:"list-pict" %>
+        <h3 class='feature-list-text'>
+          自動計算機能付き
+        </h3>
+        <p class='feature-list-description'>
+          収入額と支出額の差分が一目でわかるため、面倒な計算はいらない！
+        </p>
+      </li>
+    </ul>
+  </div>
+  <%# /ラクボの特徴 %>
+
+  <%# 管理簿一覧 %>
+  <div class='item-contents'>
+    <h2 class='title'>管理簿一覧</h2>
+    <ul class='item-lists'>
+      <li class='list'>
+        <%= link_to "#" do %>
+        <div class='item-info'>
+          <h2 class='heading tag'>
+            <%= "月" %>
+          </h2>
+          <h2 class='heading2 tag'>
+            <%= "収入額" %>円
+          </h2>
+          <h2 class='heading3 tag'>
+            <%= '貯金額' %>円
+          </h2>
+        </div>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+  <%# /管理簿一覧 %>
+</div>
+<%= link_to('#', class: 'purchase-btn') do %>
+  <span class='purchase-btn-text'>投稿する</span>
+  <%= image_tag 'pochacco.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+<% end %>
+<%= render "shared/footer" %>
