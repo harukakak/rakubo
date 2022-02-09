@@ -11,7 +11,7 @@
 ・Basic認証ID：admin
 ・Basic認証パスワード：2222
 ・アドレス：1234@gmail.com
-・パスワード：abcdefg
+・パスワード：abcdefg12
 
 ## 利用方法
 1.新規アカウントを作成
