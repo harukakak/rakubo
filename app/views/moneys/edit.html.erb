@@ -2,146 +2,238 @@
 app/assets/stylesheets/items/new.css %>
 
 <div class="items-sell-contents">
-  <header class="items-sell-header">
-    <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
-  </header>
+ 
   <div class="items-sell-main">
-    <h2 class="items-sell-title">商品の情報を入力</h2>
-    <%= form_with local: true do |f| %>
+    <h2 class="items-sell-title">家計簿の情報を入力</h2>
+    <%= form_with model: @money, local: true do |f| %>
 
-    <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
-    <%# render 'shared/error_messages', model: f.object %>
-    <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
-
-    <%# 商品画像 %>
-    <div class="img-upload">
+    <%#= render 'shared/error_messages', model: f.object %>
+    <%# 収入 %>
+    <div class="weight-bold">収入</div>
       <div class="weight-bold-text">
-        商品画像
+          月
+          <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :month, class:"items-short", id:"item", placeholder:"例（必須 2022/2)" %>
+      <div class="weight-bold-text">
+        口座名
         <span class="indispensable">必須</span>
       </div>
-      <div class="click-upload">
-        <p>
-          クリックしてファイルをアップロード
-        </p>
-        <%= f.file_field :hoge, id:"item-image" %>
-      </div>
-    </div>
-    <%# /商品画像 %>
-    <%# 商品名と商品説明 %>
-    <div class="new-items">
+      <%= f.text_area :income_account_name, class:"items-text", id:"item-name", placeholder:"例（必須 ○○のゆうちょ)" %>
       <div class="weight-bold-text">
-        商品名
+        金額
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :hoge, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
-      <div class="items-explain">
-        <div class="weight-bold-text">
-          商品の説明
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.text_area :hoge, class:"items-text", id:"item-info", placeholder:"商品の説明（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,rows:"7" ,maxlength:"1000" %>
-      </div>
-    </div>
-    <%# /商品名と商品説明 %>
+      <%= f.text_area :income_money, class:"items-short", id:"item-info", placeholder:"金額（必須 半角数字で入力）" %>
 
-    <%# 商品の詳細 %>
-    <div class="items-detail">
-      <div class="weight-bold-text">商品の詳細</div>
-      <div class="form">
-        <div class="weight-bold-text">
-          カテゴリー
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-category"}) %>
-        <div class="weight-bold-text">
-          商品の状態
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-sales-status"}) %>
-      </div>
-    </div>
-    <%# /商品の詳細 %>
+    <%# /収入 %>
 
-    <%# 配送について %>
-    <div class="items-detail">
-      <div class="weight-bold-text question-text">
-        <span>配送について</span>
-        <a class="question" href="#">?</a>
-      </div>
-      <div class="form">
-        <div class="weight-bold-text">
-          配送料の負担
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
-        <div class="weight-bold-text">
-          発送元の地域
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-prefecture"}) %>
-        <div class="weight-bold-text">
-          発送までの日数
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-scheduled-delivery"}) %>
-      </div>
-    </div>
-    <%# /配送について %>
-
-    <%# 販売価格 %>
-    <div class="sell-price">
-      <div class="weight-bold-text question-text">
-        <span>販売価格<br>(¥300〜9,999,999)</span>
-        <a class="question" href="#">?</a>
-      </div>
-      <div>
-        <div class="price-content">
-          <div class="price-text">
-            <span>価格</span>
+    <%# 支出 %>
+      <div class="weight-bold">支出1</div>
+        <div class="form">
+          <div class="weight-bold-text">
+            口座名
             <span class="indispensable">必須</span>
           </div>
-          <span class="sell-yen">¥</span>
-          <%= f.text_field :hoge, class:"price-input", id:"item-price", placeholder:"例）300" %>
+          <%= f.text_area :payment_account1_name, class:"items-text", id:"item-name", placeholder:"例（必須 ○○のゆうちょ)" %>
+          <ul class="items-detail">
+            <li class="weight-bold-text">
+              カテゴリー
+              <span class="indispensable">必須</span>
+            <a>
+            <%= f.collection_select(:item_name1_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-status"}) %>
+            </a>
+            </li>
+            <li class="weight-bold-text">
+              金額
+            <span class="indispensable">必須</span>
+            <a>
+            <%= f.text_area :payment1_money, class:"items-short", id:"item-price1", placeholder:"（必須 半角数値のみ)" %>
+            </a>
+            </li>
+          </ul>
+          <ul class="items-detail">
+            <li class="weight-bold-text">
+              カテゴリー
+            <a>
+            <%= f.collection_select(:item_name2_id, Category1.all, :id, :name, {}, {class:"select-box", id:"item-status"}) %>
+            </a>
+            </li>
+            <li class="weight-bold-text">
+              金額
+            <a>
+            <%= f.text_area :payment2_money, class:"items-short", id:"item-price2", placeholder:"（半角数値のみ)" %>
+            </a>
+            </li>
+          </ul>
+          <ul class="items-detail">
+            <li class="weight-bold-text">
+              カテゴリー
+            <a>
+            <%= f.collection_select(:item_name3_id, Category2.all, :id, :name, {}, {class:"select-box", id:"item-status"}) %>
+            </a>
+            </li>
+            <li class="weight-bold-text">
+              金額
+            <a>
+            <%= f.text_area :payment3_money, class:"items-short", id:"item-price3", placeholder:"（半角数値のみ)" %>
+            </a>
+            </li>
+          </ul>
+          <ul class="items-detail">
+            <li class="weight-bold-text">
+              カテゴリー
+            <a>
+            <%= f.collection_select(:item_name4_id, Category3.all, :id, :name, {}, {class:"select-box", id:"item-status"}) %>
+            </a>
+            </li>
+            <li class="weight-bold-text">
+              金額
+            <a>
+            <%= f.text_area :payment4_money, class:"items-short", id:"item-price4", placeholder:"（半角数値のみ)" %>
+            </a>
+            </li>
+          <ul class="items-detail">
+            <li class="weight-bold-text">
+              カテゴリー
+            <a>
+            <%= f.text_area :item_name2_self, class:"items-short",id:"item-status", placeholder:"例（ Amazon定期便)" %>
+            </a>
+            </li>
+            <li class="weight-bold-text">
+              金額
+            <a>
+            <%= f.text_area :payment5_money, class:"items-short", id:"item-price5", placeholder:"（半角数値のみ)" %>
+            </a>
+            </li>
+          </ul>
         </div>
-        <div class="price-content">
-          <span>販売手数料 (10%)</span>
-          <span>
-            <span id='add-tax-price'></span>円
-          </span>
+    <%# 支出 %>
+    <%# 支出任意 %>
+      <div class="weight-bold">支出2</div>
+        <div class="form">
+        <div class="weight-bold-text">
+          口座名
         </div>
-        <div class="price-content">
-          <span>販売利益</span>
-          <span>
-            <span id='profit'></span>円
-          </span>
+        <%= f.text_area :payment_account2_name, class:"items-text", id:"item-name", placeholder:"例（○○のゆうちょ)" %>
+        <ul class="items-detail">
+          <li class="weight-bold-text">
+            カテゴリー
+          <a>
+          <%= f.collection_select(:item_name5_id, Category4.all, :id, :name, {}, {class:"select-box", id:"item-status"}) %>
+          </a>
+          </li>
+          <li class="weight-bold-text">
+            金額
+          <a>
+          <%= f.text_area :payment6_money, class:"items-short", id:"item-price6", placeholder:"（半角数値のみ)" %>
+          </a>
+          </li>
+        </ul>
+        <ul class="items-detail">
+          <li class="weight-bold-text">
+            カテゴリー
+          <a>
+          <%= f.collection_select(:item_name6_id, Category5.all, :id, :name, {}, {class:"select-box", id:"item-status"}) %>
+          </a>
+          </li>
+          <li class="weight-bold-text">
+            金額
+          <a>
+          <%= f.text_area :payment7_money, class:"items-short", id:"item-price7", placeholder:"（半角数値のみ)" %>
+          </a>
+          </li>
+        </ul>
+        <ul class="items-detail">
+          <li class="weight-bold-text">
+            カテゴリー
+          <a>
+          <%= f.text_area :item_name1_self, class:"items-short",id:"item-status", placeholder:"例（Amazon定期便)" %>
+          </a>
+          </li>
+          <li class="weight-bold-text">
+            金額
+          <a>
+          <%= f.text_area :payment8_money, class:"items-short", id:"item-price8", placeholder:"（半角数値のみ)" %>
+          </a>
+          </li>
+        </ul>
+        <div class="weight-bold">支出3</div>
+        <div class="form">
+        <div class="weight-bold-text">
+          口座名
         </div>
+        <%= f.text_area :payment_account3_name, class:"items-text", id:"item-name", placeholder:"例（○○のゆうちょ)" %>
+        <ul class="items-detail">
+          <li class="weight-bold-text">
+            カテゴリー
+          <a>
+          <%= f.collection_select(:item_name7_id, Category6.all, :id, :name, {}, {class:"select-box", id:"item-status"}) %>
+          </a>
+          </li>
+          <li class="weight-bold-text">
+            金額
+          <a>
+          <%= f.text_area :payment9_money, class:"items-short", id:"item-price9", placeholder:"（半角数値のみ)" %>
+          </a>
+          </li>
+        </ul>
+        <ul class="items-detail">
+          <li class="weight-bold-text">
+            カテゴリー
+          <a>
+          <%= f.collection_select(:item_name8_id, Category7.all, :id, :name, {}, {class:"select-box", id:"item-status"}) %>
+          </a>
+          </li>
+          <li class="weight-bold-text">
+            金額
+          <a>
+          <%= f.text_area :payment10_money, class:"items-short", id:"item-price10", placeholder:"（半角数値のみ)" %>
+          </a>
+          </li>
+        </ul>
+        <ul class="items-detail">
+          <li class="weight-bold-text">
+            カテゴリー
+          <a>
+          <%= f.text_area :item_name3_self, class:"items-short", id:"item-status", placeholder:"例（Amazon定期便)" %>
+          </a>
+          </li>
+          <li class="weight-bold-text">
+            金額
+          <a>
+          <%= f.text_area :payment11_money, class:"items-short", id:"item-price11", placeholder:"（半角数値のみ)" %>
+          </a>
+          </li>
+        </ul>
+      </div>
+    <%# /支出任意 %>
+    <%# 差額 %>
+    <div class="sell-price">
+      <div class="price-content">
+        <span>収入額:</span>
+      </div>
+      <div class="price-content">
+          <span id='income-price'></span>円
+      </div>
+      <div class="price-content">
+        <span>支出合計:</span>
+      </div>
+      <div class="price-content">
+          <span id='outcome-price'></span>円
+      </div>
+      <div class="price-content">
+        <span>差額:</span>
+      </div>
+      <div class="price-content">
+        <span id='add-price'></span>円
       </div>
     </div>
-    <%# /販売価格 %>
-
-    <%# 注意書き %>
-    <div class="caution">
-      <p class="sentence">
-        <a href="#">禁止されている出品、</a>
-        <a href="#">行為</a>
-        を必ずご確認ください。
-      </p>
-      <p class="sentence">
-        またブランド品でシリアルナンバー等がある場合はご記載ください。
-        <a href="#">偽ブランドの販売</a>
-        は犯罪であり処罰される可能性があります。
-      </p>
-      <p class="sentence">
-        また、出品をもちまして
-        <a href="#">加盟店規約</a>
-        に同意したことになります。
-      </p>
-    </div>
-    <%# /注意書き %>
+    <%# /差額 %>
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
       <%= f.submit "変更する" ,class:"sell-btn" %>
-      <%=link_to 'もどる', "#", class:"back-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
   </div>
@@ -150,12 +242,12 @@ app/assets/stylesheets/items/new.css %>
   <footer class="items-sell-footer">
     <ul class="menu">
       <li><a href="#">プライバシーポリシー</a></li>
-      <li><a href="#">フリマ利用規約</a></li>
+      <li><a href="#">ラクボ利用規約</a></li>
       <li><a href="#">特定商取引に関する表記</a></li>
     </ul>
-    <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
+
     <p class="inc">
-      ©︎Furima,Inc.
+      ©︎ラクボ,Inc.
     </p>
   </footer>
 </div>

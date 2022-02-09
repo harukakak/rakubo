@@ -12,10 +12,15 @@
 .nav {
   font-size: 18px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
   padding: 1vh 0;
+}
+
+.list-left {
+  width: 5vw;
+  height: 8vh;
 }
 
 .lists-right {

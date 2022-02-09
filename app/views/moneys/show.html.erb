@@ -1,110 +1,287 @@
 <%= render "shared/header" %>
 
-<%# 商品の概要 %>
+
 <div class="item-show">
   <div class="item-box">
     <h2 class="name">
-      <%= "商品名" %>
+      <%= @money.month %>
     </h2>
-    <div class="item-img-content">
-      <%= image_tag "item-sample.png" ,class:"item-box-img" %>
-      <%# 商品が売れている場合は、sold outを表示しましょう %>
-      <div class="sold-out">
-        <span>Sold Out!!</span>
-      </div>
-      <%# //商品が売れている場合は、sold outを表示しましょう %>
+    <div class="item-price-box">
+      <span class="item-price">
+      口座名（収入）
+      </span>
+      <span class="name-title">
+        <%= @money.income_account_name %>
+      </span>
     </div>
     <div class="item-price-box">
       <span class="item-price">
-        ¥ 999,999,999
+      収入金額 
       </span>
-      <span class="item-postage">
-        <%= "配送料負担" %>
+      <span class="name-title">
+        <%= @money.income_money.to_s(:delimited) %>円
       </span>
     </div>
 
-    <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
+    <div class="bottun-box">
+      <%= link_to "投稿の編集", edit_money_path, method: :get, class: "item-red-btn" %>
+      <p class="or-text">or</p>
+      <%= link_to "削除", money_path, method: :delete, class:"item-destroy" %>
+    </div>
 
-    <%= link_to "商品の編集", "#", method: :get, class: "item-red-btn" %>
-    <p class="or-text">or</p>
-    <%= link_to "削除", "#", method: :delete, class:"item-destroy" %>
-
-    <%# 商品が売れていない場合はこちらを表示しましょう %>
-    <%= link_to "購入画面に進む", "#" ,class:"item-red-btn"%>
-    <%# //商品が売れていない場合はこちらを表示しましょう %>
-
-
-    <%# //ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
-
+    <div class="item-box">
     <div class="item-explain-box">
-      <span><%= "商品説明" %></span>
+      <span class="item-price">支出1：</span>
+      <span class="name-title">
+        <%= @money.payment_account1_name %>
+      </span>
     </div>
     <table class="detail-table">
       <tbody>
         <tr>
-          <th class="detail-item">出品者</th>
-          <td class="detail-value"><%= "出品者名" %></td>
+          <th class="detail-item1">カテゴリー</th>
+          <td class="detail-value1">金額</td>
         </tr>
         <tr>
-          <th class="detail-item">カテゴリー</th>
-          <td class="detail-value"><%= "カテゴリー名" %></td>
+          <th class="detail-item"><%= Category.find(@money.item_name1_id).name %></th>
+          <td class="detail-value"><%= @money.payment1_money.to_s(:delimited) %></td>
         </tr>
         <tr>
-          <th class="detail-item">商品の状態</th>
-          <td class="detail-value"><%= "商品の状態" %></td>
+          <th class="detail-item"><%= Category1.find(@money.item_name2_id).name %></th>
+          <td class="detail-value"><%= if @money.payment2_money.nil?
+           ""
+          else
+           @money.payment2_money.to_s(:delimited)
+           end %></td>
         </tr>
         <tr>
-          <th class="detail-item">配送料の負担</th>
-          <td class="detail-value"><%= "発送料の負担" %></td>
+          <th class="detail-item"><%= Category2.find(@money.item_name3_id).name %></th>
+          <td class="detail-value"><%= if @money.payment3_money.nil?
+          ""
+          else
+          @money.payment3_money.to_s(:delimited)
+          end %></td>
         </tr>
         <tr>
-          <th class="detail-item">発送元の地域</th>
-          <td class="detail-value"><%= "発送元の地域" %></td>
+          <th class="detail-item"><%= Category3.find(@money.item_name4_id).name %></th>
+          <td class="detail-value"><%= if @money.payment4_money.nil?
+          ""
+          else
+          @money.payment4_money.to_s(:delimited)
+          end %></td>
         </tr>
         <tr>
-          <th class="detail-item">発送日の目安</th>
-          <td class="detail-value"><%= "発送日の目安" %></td>
+          <th class="detail-item"><%= @money.item_name2_self %></th>
+          <td class="detail-value"><%= if @money.payment5_money.nil?
+          ""
+          else
+          @money.payment5_money.to_s(:delimited)
+          end %></td>
+        </tr>
+        <tr>
+          <th class="detail-item1">合計</th>
+          <td class="detail-value1">
+          <%= (@money.payment1_money + 
+           if @money.payment2_money.nil?
+            0
+           else
+            @money.payment2_money
+           end +
+           if @money.payment3_money.nil?
+             0
+             else
+             @money.payment3_money
+           end +
+           if @money.payment4_money.nil?
+             0
+             else
+             @money.payment4_money
+           end +
+           if @money.payment5_money.nil?
+             0
+             else
+             @money.payment5_money
+          end).to_s(:delimited) %></td>
         </tr>
       </tbody>
     </table>
-    <div class="option">
-      <div class="favorite-btn">
-        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <span>お気に入り 0</span>
-      </div>
-      <div class="report-btn">
-        <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
-        <span>不適切な商品の通報</span>
-      </div>
-    </div>
-  </div>
-  <%# /商品の概要 %>
 
-  <div class="comment-box">
-    <form>
-      <textarea class="comment-text"></textarea>
-      <p class="comment-warn">
-        相手のことを考え丁寧なコメントを心がけましょう。
-        <br>
-        不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      </p>
-      <button type="submit" class="comment-btn">
-        <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
-        <span>コメントする<span>
-      </button>
-    </form>
+    <div class="item-explain-box">
+      <span class="item-price">支出2：</span>
+      <span class="name-title">
+        <%= @money.payment_account2_name %>
+      </span>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item1">カテゴリー</th>
+          <td class="detail-value1">金額</td>
+        </tr>
+        <tr>
+          <th class="detail-item"><%= Category4.find(@money.item_name5_id).name %></th>
+          <td class="detail-value"><%= if @money.payment6_money.nil?
+          ""
+          else
+          @money.payment6_money.to_s(:delimited)
+          end %></td>
+        </tr>
+        <tr>
+          <th class="detail-item"><%= Category5.find(@money.item_name6_id).name %></th>
+          <td class="detail-value"><%= if @money.payment7_money.nil?
+          ""
+          else
+          @money.payment7_money.to_s(:delimited)
+          end %></td>
+        </tr>
+        <tr>
+          <th class="detail-item"><%= @money.item_name1_self %></th>
+          <td class="detail-value"><%= if @money.payment8_money.nil?
+          ""
+          else
+          @money.payment8_money.to_s(:delimited)
+          end %></td>
+        </tr>
+        <tr>
+        <tr>
+          <th class="detail-item1">合計</th>
+          <td class="detail-value1">
+          <%= (if @money.payment6_money.nil?
+            0
+            else
+              @money.payment6_money
+            end + 
+           if @money.payment7_money.nil?
+            0
+           else
+            @money.payment7_money
+           end +
+           if @money.payment8_money.nil?
+             0
+             else
+             @money.payment8_money
+           end).to_s(:delimited) %></td>
+        </tr>
+        </tr>
+      </tbody>
+    </table>
+    <div class="item-explain-box">
+      <span class="item-price">支出3：</span>
+      <span class="name-title">
+        <%= @money.payment_account3_name %>
+      </span>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item1">カテゴリー</th>
+          <td class="detail-value1">金額</td>
+        </tr>
+        <tr>
+          <th class="detail-item"><%= Category6.find(@money.item_name7_id).name %></th>
+          <td class="detail-value"><%= if @money.payment9_money.nil?
+          ""
+          else
+          @money.payment9_money.to_s(:delimited)
+          end %></td>
+        </tr>
+        <tr>
+          <th class="detail-item"><%= Category7.find(@money.item_name8_id).name %></th>
+          <td class="detail-value"><%= if @money.payment10_money.nil?
+          ""
+          else
+          @money.payment10_money.to_s(:delimited)
+          end %></td>
+        </tr>
+        <tr>
+          <th class="detail-item"><%= @money.item_name3_self %></th>
+          <td class="detail-value"><%= if @money.payment11_money.nil?
+          ""
+          else
+          @money.payment11_money.to_s(:delimited)
+          end %></td>
+        </tr>
+                <tr>
+          <th class="detail-item1">合計</th>
+          <td class="detail-value1">
+          <%= (if @money.payment9_money.nil?
+            0
+            else
+              @money.payment9_money
+            end + 
+           if @money.payment10_money.nil?
+            0
+           else
+            @money.payment10_money
+           end +
+           if @money.payment11_money.nil?
+             0
+             else
+             @money.payment11_money
+           end).to_s(:delimited) %></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item1">支出総合計</th>
+          <td class="detail-value1"><%= (@money.payment1_money + 
+          if @money.payment2_money.nil?
+            0
+          else
+            @money.payment2_money
+          end +
+          if @money.payment3_money.nil?
+             0
+          else
+             @money.payment3_money
+          end +
+          if @money.payment4_money.nil?
+             0
+          else
+             @money.payment4_money
+          end +
+          if @money.payment5_money.nil?
+             0
+          else
+             @money.payment5_money
+          end +
+          if @money.payment6_money.nil?
+            0
+          else
+              @money.payment6_money
+          end + 
+          if @money.payment7_money.nil?
+            0
+           else
+            @money.payment7_money
+           end +
+           if @money.payment8_money.nil?
+             0
+           else
+             @money.payment8_money
+           end +
+           if @money.payment9_money.nil?
+            0
+            else
+              @money.payment9_money
+            end + 
+           if @money.payment10_money.nil?
+            0
+           else
+            @money.payment10_money
+           end +
+           if @money.payment11_money.nil?
+             0
+           else
+             @money.payment11_money
+          end).to_s(:delimited) %></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div class="links">
-    <a href="#" class="change-item-btn">
-      ＜ 前の商品
-    </a>
-    <a href="#" class="change-item-btn">
-      後ろの商品 ＞
-    </a>
-  </div>
-  <%# 詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
-  <a href="#" class="another-item"><%= "商品のカテゴリー名" %>をもっと見る</a>
-  <%# //詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
 </div>
 
 <%= render "shared/footer" %>
