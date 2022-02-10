@@ -114,7 +114,11 @@ Ruby,Ruby on Rails,Java Script,Visual Studio Code,MySQL,Github,
 
 ## ローカルでの動作方法
 以下のコマンドを順に実行。
+
 % git clone https://github.com/harukakak/rakubo
+
 % cd rakubo
+
 % bundle install
+
 % yarn install
