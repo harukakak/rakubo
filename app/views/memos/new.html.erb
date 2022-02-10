@@ -1,0 +1,36 @@
+<div class="items-sell-contents">
+ 
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">貯金の目標を入力</h2>
+    <%= form_with model: @memo, url:memos_path, local: true do |f| %>
+    <%# 目標 %>
+    <div class="weight-bold">目標</div>
+      <%= f.text_area :target, class:"items-text2", id:"item", placeholder:"例（車を購入する)" %>
+    <%# /目標 %>
+    <%# メモ %>
+    <h2 class="items-sell-title">メモを入力</h2>
+    <div class="weight-bold">メモ</div>
+    <%= f.text_area :text, class:"items-text3", id:"item", placeholder:"例（来月は賞与あり)" %>
+    <%# /メモ %>
+    <%# 下部ボタン %>
+    <div class="sell-btn-contents">
+      <%= f.submit "投稿する" ,class:"sell-btn" %>
+      <%=link_to 'TOPへもどる', root_path, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  </div>
+  <% end %>
+
+
+  <footer class="items-sell-footer">
+    <ul class="menu">
+      <li><a href="#">プライバシーポリシー</a></li>
+      <li><a href="#">ラクボ利用規約</a></li>
+      <li><a href="#">特定商取引に関する表記</a></li>
+    </ul>
+
+    <p class="inc">
+      ©︎ラクボ,Inc.
+    </p>
+  </footer>
+</div>

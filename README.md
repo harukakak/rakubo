@@ -112,6 +112,17 @@ https://docs.google.com/spreadsheets/d/1RHoc-swkgrImLceivdY4ngvRlb524aPtwhxyJV6T
 ### Association
 - belongs_to :user
 
+## memoテーブル
+
+| Column               | Type       | Options                        |
+| -------------------- | ---------- | ------------------------------ |
+| target               | string     |                                |
+| text                 | text       |                                |
+| user                 | references | null: false, foreign_key: true |
+
+### Association
+- has_many :moneys
+
 ## 画面遷移図
 [![Image from Gyazo](https://i.gyazo.com/703ff6d7b97edc1470fad12974fe807d.png)](https://gyazo.com/703ff6d7b97edc1470fad12974fe807d)
 

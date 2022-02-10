@@ -1,0 +1,46 @@
+<%= render "shared/header" %>
+<div class='main'>
+<div class='item-contents'>
+
+
+  <% @flg = 0 %>
+  <% @memos.each do |memo| %>
+    <% if memo.present? && current_user.id == memo.user_id %>
+      <div class="bottun-box">
+        <%= link_to "メモと目標の編集", edit_memo_path(memo.id), method: :get, class: "item-red-btn" %>
+        <p class="or-text">or</p>
+        <%= link_to "削除", memo_path(memo.id), method: :delete, class:"item-destroy" %>
+        <% @flg = 1 %>
+      </div>
+    <% end %>
+  <% end %>
+  <% if @flg == 0 %>
+    <div class="bottun-box">
+      <%= link_to "メモと目標の投稿", new_memo_path, method: :get, class: "item-red-btn" %>
+    </div>
+  <% end %>
+    <% @memos.each do |memo| %>
+        <% if user_signed_in? && current_user.id == memo.user_id %>
+          <ul class='item-lists2'>
+          <li class='list'>
+              <div class='item-info'>
+                <h2 class='heading5 tag'>
+                  目標：
+                </h2>
+                <span class='heading4 tag'>
+                  <%= simple_format(memo.target) %>
+                </span>
+                <h2 class='heading5 tag'>
+                  メモ：
+                </h2>
+                <span class='heading4 tag'>
+                <%= simple_format(memo.text) %>
+                </span>
+              </div>
+          </li>
+          <% end %>
+        <% end %>
+    </ul>
+</div>
+</div>
+<%= render "shared/footer" %>

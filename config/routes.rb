@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root to: "moneys#index"
   resources :users
   resources :moneys
+  resources :memos
 end

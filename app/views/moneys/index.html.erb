@@ -10,7 +10,6 @@
       ラクボで楽々貯金を始めよう
     </p>
     <h1 class='service-money'>
-    <%# 現在の貯金額：<%= Money.sum(:payment1_money).to_s(:delimited) 円 %>
     現在の貯金額： 
     <% sumpay = 0 %>
     <% @moneys.each do |money| %>
@@ -19,8 +18,6 @@
       <% end %>
     <% end %>
     <%= sumpay.to_s(:delimited) %>円
-
-
 
     </h1>
   </div>
