@@ -38,6 +38,8 @@ https://rakubo0424.herokuapp.com/
 
 ・貯金額が具体的にいくら貯まったかわかる方がモチベーションも維持できる考え、貯金額の合計がTOP画面で表示されるようにした。
 
+・副業をしている人も多いため、収入が一つとは限らないから、家計簿登録画面で収入口座を任意で2つまで登録できるようにした。
+
 ## 洗い出した要件
 https://docs.google.com/spreadsheets/d/1RHoc-swkgrImLceivdY4ngvRlb524aPtwhxyJV6TQYQ/edit#gid=982722306
 
