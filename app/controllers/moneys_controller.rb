@@ -55,6 +55,6 @@ class MoneysController < ApplicationController
         :item_name8_id, :payment_account2_name, :payment_account3_name, :payment2_money,
         :payment3_money, :payment4_money, :payment5_money, :payment6_money, :payment7_money,
         :payment8_money, :payment9_money, :payment10_money, :payment11_money, :item_name1_self,
-        :item_name2_self, :item_name3_self, :income_account2_name,:income2_money ).merge(user_id: current_user.id)
+        :item_name2_self, :item_name3_self, :income_account2_name, :income2_money ).merge(user_id: current_user.id)
   end
 end
