@@ -28,6 +28,7 @@
     linear-gradient(90deg, rgba(165, 210, 255, .3) 50%, transparent 50%),
     linear-gradient(rgba(165, 210, 255, .3) 50%, transparent 50%);
   background-size: 40px 40px;
+  margin-bottom: 40px;
 }
 
 /* 共通 */
@@ -47,6 +48,7 @@
   min-width: 170px;
   margin-right: 10px;
 }
+
 
 .select-box {
   height: 30px;

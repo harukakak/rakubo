@@ -81,10 +81,12 @@ https://docs.google.com/spreadsheets/d/1RHoc-swkgrImLceivdY4ngvRlb524aPtwhxyJV6T
 | -------------------- | ---------- | ------------------------------ |
 | month                | string     | null: false                    |
 | income_account_name  | string     | null: false                    |
+| income_account2_name | string     |                                |
 | payment_account1_name| string     | null: false                    |
 | payment_account2_name| string     |                                |
 | payment_account3_name| string     |                                |
 | income_money         | integer    | null: false                    |
+| income2_money        | integer    |                                |
 | payment1_money       | integer    | null: false                    |
 | payment2_money       | integer    |                                |
 | payment3_money       | integer    |                                |

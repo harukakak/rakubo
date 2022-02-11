@@ -74,7 +74,13 @@
                   <%= money.month %>
                 </h2>
                 <h2 class='heading2 tag'>
-                  収入額：<%= money.income_money.to_s(:delimited) %>円
+                  収入額：
+                  <% if money.income2_money.nil?
+                    num = money.income_money
+                    else
+                    num = money.income_money + money.income2_money
+                    end %>
+                  <%= num.to_s(:delimited) %>円
                 </h2>
                 <h2 class='heading3 tag'>
                   貯金額：<%= money.payment1_money.to_s(:delimited) %>円

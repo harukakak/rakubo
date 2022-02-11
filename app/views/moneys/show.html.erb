@@ -8,7 +8,7 @@
     </h2>
     <div class="item-price-box">
       <span class="item-price">
-      口座名（収入）
+      口座名1（収入）
       </span>
       <span class="name-title">
         <%= @money.income_account_name %>
@@ -16,10 +16,30 @@
     </div>
     <div class="item-price-box">
       <span class="item-price">
-      収入金額 
+      収入金額1 
       </span>
       <span class="name-title">
         <%= @money.income_money.to_s(:delimited) %>円
+      </span>
+    </div>
+    <div class="item-price-box">
+      <span class="item-price">
+      口座名2（収入）
+      </span>
+      <span class="name-title">
+        <%= @money.income_account2_name %>
+      </span>
+    </div>
+    <div class="item-price-box">
+      <span class="item-price">
+      収入金額2 
+      </span>
+      <span class="name-title">
+        <%= if @money.income2_money.nil?
+          "0"
+          else
+          @money.income2_money.to_s(:delimited)
+          end %>円
       </span>
     </div>
 
@@ -226,8 +246,18 @@
     <table class="detail-table">
       <tbody>
         <tr>
+          <th class="detail-item1">収入総合計</th>
+          <td class="detail-value1">
+          <%= if @money.income2_money.nil?
+          @money.income_money.to_s(:delimited)
+          else
+          (@money.income_money + @money.income2_money).to_s(:delimited)
+          end %></td>
+        </tr>
+        <tr>
           <th class="detail-item1">支出総合計</th>
-          <td class="detail-value1"><%= (@money.payment1_money + 
+          <td class="detail-value1">
+          <%= (@money.payment1_money + 
           if @money.payment2_money.nil?
             0
           else

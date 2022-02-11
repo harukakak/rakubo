@@ -7,14 +7,14 @@ app/assets/stylesheets/items/new.css %>
     <h2 class="items-sell-title">家計簿の情報を入力</h2>
     <%= form_with model: @money, local: true do |f| %>
 
-    <%#= render 'shared/error_messages', model: f.object %>
+    <%= render 'shared/error_messages', model: f.object %>
     <%# 収入 %>
-    <div class="weight-bold">収入</div>
-      <div class="weight-bold-text">
+    <div class="weight-bold-text">
           月
-          <span class="indispensable">必須</span>
+        <span class="indispensable">必須</span>
       </div>
       <%= f.text_area :month, class:"items-short", id:"item", placeholder:"例（必須 2022/2)" %>
+      <div class="weight-bold">収入1</div>
       <div class="weight-bold-text">
         口座名
         <span class="indispensable">必須</span>
@@ -25,7 +25,15 @@ app/assets/stylesheets/items/new.css %>
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_area :income_money, class:"items-short", id:"item-info", placeholder:"金額（必須 半角数字で入力）" %>
-
+      <div class="weight-bold">収入2</div>
+      <div class="weight-bold-text">
+        口座名
+      </div>
+      <%= f.text_area :income_account2_name, class:"items-text", id:"item-name", placeholder:"例（必須 ○○のゆうちょ)" %>
+      <div class="weight-bold-text">
+        金額
+      </div>
+      <%= f.text_area :income2_money, class:"items-short", id:"item-info2", placeholder:"金額（必須 半角数字で入力）" %>
     <%# /収入 %>
 
     <%# 支出 %>
@@ -39,7 +47,6 @@ app/assets/stylesheets/items/new.css %>
           <ul class="items-detail">
             <li class="weight-bold-text">
               カテゴリー
-              <span class="indispensable">必須</span>
             <a>
             <%= f.collection_select(:item_name1_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-status"}) %>
             </a>
@@ -210,24 +217,34 @@ app/assets/stylesheets/items/new.css %>
     <%# /支出任意 %>
     <%# 差額 %>
     <div class="sell-price">
-      <div class="price-content">
-        <span>収入額:</span>
-      </div>
-      <div class="price-content">
-          <span id='income-price'></span>円
-      </div>
-      <div class="price-content">
-        <span>支出合計:</span>
-      </div>
-      <div class="price-content">
-          <span id='outcome-price'></span>円
-      </div>
-      <div class="price-content">
-        <span>差額:</span>
-      </div>
-      <div class="price-content">
-        <span id='add-price'></span>円
-      </div>
+      <table class="detail-table">
+        <tbody>
+            <tr>
+              <div class="price-content">
+              <th>収入額:</th>
+              </div>
+              <td class="price-content">
+              <span id='income-price'></span>円
+              </td>
+            </tr>
+            <tr>
+              <div class="price-content">
+              <th>支出合計:</th>
+              </div>
+              <td class="price-content">
+              <span id='outcome-price'></span>円
+              </td>
+            </tr>
+            <tr>
+              <div class="price-content">
+              <th>差額:</th>
+              </div>
+              <td class="price-content">
+              <span id='add-price'></span>円
+              </td>
+            </tr>
+        </tbody>
+      </table>
     </div>
     <%# /差額 %>
     <%# 下部ボタン %>

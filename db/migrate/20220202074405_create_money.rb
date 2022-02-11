@@ -3,10 +3,12 @@ class CreateMoney < ActiveRecord::Migration[6.0]
     create_table :money do |t|
       t.string     :month,                   null: false
       t.string     :income_account_name,     null: false
+      t.string     :income_account2_name
       t.string     :payment_account1_name,   null: false
       t.string     :payment_account2_name
       t.string     :payment_account3_name
       t.integer    :income_money,            null: false
+      t.integer    :income2_money
       t.integer    :payment1_money,          null: false
       t.integer    :payment2_money
       t.integer    :payment3_money
