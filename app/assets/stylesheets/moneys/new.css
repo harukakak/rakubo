@@ -152,7 +152,7 @@ li a {
   text-align: center;
   border-radius: 4%;
   bottom: 32px;
-  right: 200px;
+  right: 220px;
   position: fixed;
   padding: 10px;
   background-image: -webkit-gradient(linear, left top, right top, from(#209cff), to(#68e0cf));
@@ -215,6 +215,7 @@ li a {
   background-image: -webkit-gradient(linear, left top, right top, from(#209cff), to(#68e0cf));
   background-image: -webkit-linear-gradient(left, #209cff 0%, #68e0cf 100%);
   background-image: linear-gradient(to right, #209cff 0%, #68e0cf 100%);
+  border: 1px solid #68e0cf;
 }
 
 .back-btn {
@@ -224,6 +225,7 @@ li a {
   padding: 15px 35%;
   text-decoration: none;
 }
+
 
 /* /下部ボタン */
 
@@ -253,3 +255,12 @@ li a {
   font-size: 13px;
 }
 
+.item-red-btn2 {
+  text-align: center;
+  background-color: #000066;
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFF;
+  margin: 30px 15px;
+  padding: 1vh 5vw;
+}

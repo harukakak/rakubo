@@ -2,6 +2,11 @@
  
   <div class="items-sell-main">
     <h2 class="items-sell-title">家計簿の情報を入力</h2>
+
+    <div class="sell-btn-contents">
+      <%=link_to '前月分をコピー', lastmonthsearch_money_path(current_user.id), class:"item-red-btn2" %>
+    </div>
+
     <%= form_with model: @money, url:moneys_path, local: true do |f| %>
 
     <%= render 'shared/error_messages', model: f.object %>
@@ -246,7 +251,7 @@
     <%# /差額 %>
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
-      <%= f.submit "投稿する" ,class:"sell-btn" %>
+      <%= f.submit "保存する" ,class:"sell-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>

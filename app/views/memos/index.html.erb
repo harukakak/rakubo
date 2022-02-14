@@ -25,13 +25,14 @@
           <li class='list'>
               <div class='item-info'>
                 <h2 class='heading5 tag'>
-                  目標：
+                  目標：<%= image_tag 'camera.png' ,class: "list-left" %>
                 </h2>
+                
                 <span class='heading4 tag'>
                   <%= simple_format(memo.target) %>
                 </span>
                 <h2 class='heading5 tag'>
-                  メモ：
+                  メモ：<%= image_tag 'enpitu.png' ,class: "list-left" %>
                 </h2>
                 <span class='heading4 tag'>
                 <%= simple_format(memo.text) %>
