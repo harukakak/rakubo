@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nick_name: ニックネーム
+      money:
+        month: 月
+        income_account_name: 収入1の口座名
+        payment_account1_name: 支出1の口座名
+        income_money: 収入1の金額
+        payment1_money: 貯金額
