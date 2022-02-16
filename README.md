@@ -110,6 +110,8 @@ https://docs.google.com/spreadsheets/d/1RHoc-swkgrImLceivdY4ngvRlb524aPtwhxyJV6T
 | payment12_money      | integer    |                                |
 | payment13_money      | integer    |                                |
 | payment14_money      | integer    |                                |
+| payment15_money      | integer    |                                |
+| payment16_money      | integer    |                                |
 | item_name1_id        | integer    | null: false                    |
 | item_name2_id        | integer    |                                |
 | item_name3_id        | integer    |                                |
@@ -121,6 +123,8 @@ https://docs.google.com/spreadsheets/d/1RHoc-swkgrImLceivdY4ngvRlb524aPtwhxyJV6T
 | item_name9_id        | integer    |                                |
 | item_name10_id       | integer    |                                |
 | item_name11_id       | integer    |                                |
+| item_name12_id       | integer    |                                |
+| item_name13_id       | integer    |                                |
 | item_name1_self      | integer    |                                |
 | item_name2_self      | integer    |                                |
 | item_name3_self      | integer    |                                |

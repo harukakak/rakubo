@@ -1,3 +1,56 @@
+window.addEventListener("load", function () {
+  const priceInput1 = document.getElementById("item-price1");
+  const priceInput2 = document.getElementById("item-price2");
+  const priceInput3 = document.getElementById("item-price3");
+  const priceInput4 = document.getElementById("item-price4");
+  const priceInput5 = document.getElementById("item-price5");
+  const priceInput6 = document.getElementById("item-price6");
+  const priceInput7 = document.getElementById("item-price7");
+  const priceInput8 = document.getElementById("item-price8");
+  const priceInput9 = document.getElementById("item-price9");
+  const priceInput10 = document.getElementById("item-price10");
+  const priceInput11 = document.getElementById("item-price11");
+  const priceInput12 = document.getElementById("item-price12");
+  const priceInput13 = document.getElementById("item-price13");
+  const priceInput14 = document.getElementById("item-price14");
+  const priceInput15 = document.getElementById("item-price15");
+  const priceInput16 = document.getElementById("item-price16");
+  const info = document.getElementById("item-info");
+  const info2 = document.getElementById("item-info2");
+  const inputValue1 = priceInput1.value;
+  const inputValue2 = priceInput2.value;
+  const inputValue3 = priceInput3.value;
+  const inputValue4 = priceInput4.value;
+  const inputValue5 = priceInput5.value;
+  const inputValue6 = priceInput6.value;
+  const inputValue7 = priceInput7.value;
+  const inputValue8 = priceInput8.value;
+  const inputValue9 = priceInput9.value;
+  const inputValue10 = priceInput10.value;
+  const inputValue11 = priceInput11.value;
+  const inputValue12 = priceInput12.value;
+  const inputValue13 = priceInput13.value;
+  const inputValue14 = priceInput14.value;
+  const inputValue15 = priceInput15.value;
+  const inputValue16 = priceInput16.value;
+  const infoValue = info.value
+  const infoValue2 = info2.value
+  const incomePriceDom = document.getElementById("income-price");
+  const outcomeDom = document.getElementById("outcome-price");
+  const addPriceDom = document.getElementById("add-price");
+  const sum1 = Number(inputValue1) + Number(inputValue2) + Number(inputValue3)
+    + Number(inputValue4) + Number(inputValue5) + Number(inputValue6)
+    + Number(inputValue7) + Number(inputValue8) + Number(inputValue9)
+    + Number(inputValue10) + Number(inputValue11)
+    + Number(inputValue12) + Number(inputValue13) + Number(inputValue14)
+    + Number(inputValue15) + Number(inputValue16)
+  const add1 = Number(infoValue) + Number(infoValue2)
+  const numberWithComma = new Intl.NumberFormat();
+  incomePriceDom.innerHTML = numberWithComma.format(add1);
+  outcomeDom.innerHTML = numberWithComma.format(sum1);
+  addPriceDom.innerHTML = numberWithComma.format(Math.floor(add1 - sum1));
+});
+
 window.addEventListener('load', () => {
   const priceInput1 = document.getElementById("item-price1");
   const priceInput2 = document.getElementById("item-price2");
@@ -10,6 +63,11 @@ window.addEventListener('load', () => {
   const priceInput9 = document.getElementById("item-price9");
   const priceInput10 = document.getElementById("item-price10");
   const priceInput11 = document.getElementById("item-price11");
+  const priceInput12 = document.getElementById("item-price12");
+  const priceInput13 = document.getElementById("item-price13");
+  const priceInput14 = document.getElementById("item-price14");
+  const priceInput15 = document.getElementById("item-price15");
+  const priceInput16 = document.getElementById("item-price16");
   const info = document.getElementById("item-info");
   const info2 = document.getElementById("item-info2");
   priceInput1.addEventListener("input", () => {
@@ -24,6 +82,11 @@ window.addEventListener('load', () => {
     const inputValue9 = priceInput9.value;
     const inputValue10 = priceInput10.value;
     const inputValue11 = priceInput11.value;
+    const inputValue12 = priceInput12.value;
+    const inputValue13 = priceInput13.value;
+    const inputValue14 = priceInput14.value;
+    const inputValue15 = priceInput15.value;
+    const inputValue16 = priceInput16.value;
     const infoValue = info.value
     const infoValue2 = info2.value
     const incomePriceDom = document.getElementById("income-price");
@@ -33,6 +96,8 @@ window.addEventListener('load', () => {
       + Number(inputValue4) + Number(inputValue5) + Number(inputValue6)
       + Number(inputValue7) + Number(inputValue8) + Number(inputValue9)
       + Number(inputValue10) + Number(inputValue11)
+      + Number(inputValue12) + Number(inputValue13) + Number(inputValue14)
+      + Number(inputValue15) + Number(inputValue16)
     const add1 = Number(infoValue) + Number(infoValue2)
     const numberWithComma = new Intl.NumberFormat();
     incomePriceDom.innerHTML = numberWithComma.format(add1);
@@ -51,6 +116,11 @@ window.addEventListener('load', () => {
     const inputValue9 = priceInput9.value;
     const inputValue10 = priceInput10.value;
     const inputValue11 = priceInput11.value;
+    const inputValue12 = priceInput12.value;
+    const inputValue13 = priceInput13.value;
+    const inputValue14 = priceInput14.value;
+    const inputValue15 = priceInput15.value;
+    const inputValue16 = priceInput16.value;
     const infoValue = info.value
     const infoValue2 = info2.value
     const incomePriceDom = document.getElementById("income-price");
@@ -60,6 +130,8 @@ window.addEventListener('load', () => {
       + Number(inputValue4) + Number(inputValue5) + Number(inputValue6)
       + Number(inputValue7) + Number(inputValue8) + Number(inputValue9)
       + Number(inputValue10) + Number(inputValue11)
+      + Number(inputValue12) + Number(inputValue13) + Number(inputValue14)
+      + Number(inputValue15) + Number(inputValue16)
     const add2 = Number(infoValue) + Number(infoValue2)
     const numberWithComma = new Intl.NumberFormat();
     incomePriceDom.innerHTML = numberWithComma.format(add2);
@@ -78,6 +150,11 @@ window.addEventListener('load', () => {
     const inputValue9 = priceInput9.value;
     const inputValue10 = priceInput10.value;
     const inputValue11 = priceInput11.value;
+    const inputValue12 = priceInput12.value;
+    const inputValue13 = priceInput13.value;
+    const inputValue14 = priceInput14.value;
+    const inputValue15 = priceInput15.value;
+    const inputValue16 = priceInput16.value;
     const infoValue = info.value
     const infoValue2 = info2.value
     const incomePriceDom = document.getElementById("income-price");
@@ -87,6 +164,8 @@ window.addEventListener('load', () => {
       + Number(inputValue4) + Number(inputValue5) + Number(inputValue6)
       + Number(inputValue7) + Number(inputValue8) + Number(inputValue9)
       + Number(inputValue10) + Number(inputValue11)
+      + Number(inputValue12) + Number(inputValue13) + Number(inputValue14)
+      + Number(inputValue15) + Number(inputValue16)
     const add3 = Number(infoValue) + Number(infoValue2)
     const numberWithComma = new Intl.NumberFormat();
     incomePriceDom.innerHTML = numberWithComma.format(add3);
@@ -105,6 +184,11 @@ window.addEventListener('load', () => {
     const inputValue9 = priceInput9.value;
     const inputValue10 = priceInput10.value;
     const inputValue11 = priceInput11.value;
+    const inputValue12 = priceInput12.value;
+    const inputValue13 = priceInput13.value;
+    const inputValue14 = priceInput14.value;
+    const inputValue15 = priceInput15.value;
+    const inputValue16 = priceInput16.value;
     const infoValue = info.value
     const infoValue2 = info2.value
     const incomePriceDom = document.getElementById("income-price");
@@ -114,6 +198,8 @@ window.addEventListener('load', () => {
       + Number(inputValue4) + Number(inputValue5) + Number(inputValue6)
       + Number(inputValue7) + Number(inputValue8) + Number(inputValue9)
       + Number(inputValue10) + Number(inputValue11)
+      + Number(inputValue12) + Number(inputValue13) + Number(inputValue14)
+      + Number(inputValue15) + Number(inputValue16)
     const add4 = Number(infoValue) + Number(infoValue2)
     const numberWithComma = new Intl.NumberFormat();
     incomePriceDom.innerHTML = numberWithComma.format(add4);
@@ -132,6 +218,11 @@ window.addEventListener('load', () => {
     const inputValue9 = priceInput9.value;
     const inputValue10 = priceInput10.value;
     const inputValue11 = priceInput11.value;
+    const inputValue12 = priceInput12.value;
+    const inputValue13 = priceInput13.value;
+    const inputValue14 = priceInput14.value;
+    const inputValue15 = priceInput15.value;
+    const inputValue16 = priceInput16.value;
     const infoValue = info.value
     const infoValue2 = info2.value
     const incomePriceDom = document.getElementById("income-price");
@@ -141,6 +232,8 @@ window.addEventListener('load', () => {
       + Number(inputValue4) + Number(inputValue5) + Number(inputValue6)
       + Number(inputValue7) + Number(inputValue8) + Number(inputValue9)
       + Number(inputValue10) + Number(inputValue11)
+      + Number(inputValue12) + Number(inputValue13) + Number(inputValue14)
+      + Number(inputValue15) + Number(inputValue16)
     const numberWithComma = new Intl.NumberFormat();
     const add5 = Number(infoValue) + Number(infoValue2)
     incomePriceDom.innerHTML = numberWithComma.format(add5);
@@ -159,6 +252,11 @@ window.addEventListener('load', () => {
     const inputValue9 = priceInput9.value;
     const inputValue10 = priceInput10.value;
     const inputValue11 = priceInput11.value;
+    const inputValue12 = priceInput12.value;
+    const inputValue13 = priceInput13.value;
+    const inputValue14 = priceInput14.value;
+    const inputValue15 = priceInput15.value;
+    const inputValue16 = priceInput16.value;
     const infoValue = info.value
     const infoValue2 = info2.value
     const incomePriceDom = document.getElementById("income-price");
@@ -168,6 +266,8 @@ window.addEventListener('load', () => {
       + Number(inputValue4) + Number(inputValue5) + Number(inputValue6)
       + Number(inputValue7) + Number(inputValue8) + Number(inputValue9)
       + Number(inputValue10) + Number(inputValue11)
+      + Number(inputValue12) + Number(inputValue13) + Number(inputValue14)
+      + Number(inputValue15) + Number(inputValue16)
     const numberWithComma = new Intl.NumberFormat();
     const add6 = Number(infoValue) + Number(infoValue2)
     incomePriceDom.innerHTML = numberWithComma.format(add6);
@@ -186,6 +286,11 @@ window.addEventListener('load', () => {
     const inputValue9 = priceInput9.value;
     const inputValue10 = priceInput10.value;
     const inputValue11 = priceInput11.value;
+    const inputValue12 = priceInput12.value;
+    const inputValue13 = priceInput13.value;
+    const inputValue14 = priceInput14.value;
+    const inputValue15 = priceInput15.value;
+    const inputValue16 = priceInput16.value;
     const infoValue = info.value
     const infoValue2 = info2.value
     const incomePriceDom = document.getElementById("income-price");
@@ -195,6 +300,8 @@ window.addEventListener('load', () => {
       + Number(inputValue4) + Number(inputValue5) + Number(inputValue6)
       + Number(inputValue7) + Number(inputValue8) + Number(inputValue9)
       + Number(inputValue10) + Number(inputValue11)
+      + Number(inputValue12) + Number(inputValue13) + Number(inputValue14)
+      + Number(inputValue15) + Number(inputValue16)
     const numberWithComma = new Intl.NumberFormat();
     const add7 = Number(infoValue) + Number(infoValue2)
     incomePriceDom.innerHTML = numberWithComma.format(add7);
@@ -213,6 +320,11 @@ window.addEventListener('load', () => {
     const inputValue9 = priceInput9.value;
     const inputValue10 = priceInput10.value;
     const inputValue11 = priceInput11.value;
+    const inputValue12 = priceInput12.value;
+    const inputValue13 = priceInput13.value;
+    const inputValue14 = priceInput14.value;
+    const inputValue15 = priceInput15.value;
+    const inputValue16 = priceInput16.value;
     const infoValue = info.value
     const infoValue2 = info2.value
     const incomePriceDom = document.getElementById("income-price");
@@ -222,6 +334,8 @@ window.addEventListener('load', () => {
       + Number(inputValue4) + Number(inputValue5) + Number(inputValue6)
       + Number(inputValue7) + Number(inputValue8) + Number(inputValue9)
       + Number(inputValue10) + Number(inputValue11)
+      + Number(inputValue12) + Number(inputValue13) + Number(inputValue14)
+      + Number(inputValue15) + Number(inputValue16)
     const numberWithComma = new Intl.NumberFormat();
     const add8 = Number(infoValue) + Number(infoValue2)
     incomePriceDom.innerHTML = numberWithComma.format(add8);
@@ -240,6 +354,11 @@ window.addEventListener('load', () => {
     const inputValue9 = priceInput9.value;
     const inputValue10 = priceInput10.value;
     const inputValue11 = priceInput11.value;
+    const inputValue12 = priceInput12.value;
+    const inputValue13 = priceInput13.value;
+    const inputValue14 = priceInput14.value;
+    const inputValue15 = priceInput15.value;
+    const inputValue16 = priceInput16.value;
     const infoValue = info.value
     const infoValue2 = info2.value
     const incomePriceDom = document.getElementById("income-price");
@@ -249,6 +368,8 @@ window.addEventListener('load', () => {
       + Number(inputValue4) + Number(inputValue5) + Number(inputValue6)
       + Number(inputValue7) + Number(inputValue8) + Number(inputValue9)
       + Number(inputValue10) + Number(inputValue11)
+      + Number(inputValue12) + Number(inputValue13) + Number(inputValue14)
+      + Number(inputValue15) + Number(inputValue16)
     const numberWithComma = new Intl.NumberFormat();
     const add9 = Number(infoValue) + Number(infoValue2)
     incomePriceDom.innerHTML = numberWithComma.format(add9);
@@ -267,6 +388,11 @@ window.addEventListener('load', () => {
     const inputValue9 = priceInput9.value;
     const inputValue10 = priceInput10.value;
     const inputValue11 = priceInput11.value;
+    const inputValue12 = priceInput12.value;
+    const inputValue13 = priceInput13.value;
+    const inputValue14 = priceInput14.value;
+    const inputValue15 = priceInput15.value;
+    const inputValue16 = priceInput16.value;
     const infoValue = info.value
     const infoValue2 = info2.value
     const incomePriceDom = document.getElementById("income-price");
@@ -276,6 +402,8 @@ window.addEventListener('load', () => {
       + Number(inputValue4) + Number(inputValue5) + Number(inputValue6)
       + Number(inputValue7) + Number(inputValue8) + Number(inputValue9)
       + Number(inputValue10) + Number(inputValue11)
+      + Number(inputValue12) + Number(inputValue13) + Number(inputValue14)
+      + Number(inputValue15) + Number(inputValue16)
     const numberWithComma = new Intl.NumberFormat();
     const add10 = Number(infoValue) + Number(infoValue2)
     incomePriceDom.innerHTML = numberWithComma.format(add10);
@@ -294,6 +422,11 @@ window.addEventListener('load', () => {
     const inputValue9 = priceInput9.value;
     const inputValue10 = priceInput10.value;
     const inputValue11 = priceInput11.value;
+    const inputValue12 = priceInput12.value;
+    const inputValue13 = priceInput13.value;
+    const inputValue14 = priceInput14.value;
+    const inputValue15 = priceInput15.value;
+    const inputValue16 = priceInput16.value;
     const infoValue = info.value
     const infoValue2 = info2.value
     const incomePriceDom = document.getElementById("income-price");
@@ -303,6 +436,8 @@ window.addEventListener('load', () => {
       + Number(inputValue4) + Number(inputValue5) + Number(inputValue6)
       + Number(inputValue7) + Number(inputValue8) + Number(inputValue9)
       + Number(inputValue10) + Number(inputValue11)
+      + Number(inputValue12) + Number(inputValue13) + Number(inputValue14)
+      + Number(inputValue15) + Number(inputValue16)
     const numberWithComma = new Intl.NumberFormat();
     const add11 = Number(infoValue) + Number(infoValue2)
     incomePriceDom.innerHTML = numberWithComma.format(add11);
@@ -321,6 +456,11 @@ window.addEventListener('load', () => {
     const inputValue9 = priceInput9.value;
     const inputValue10 = priceInput10.value;
     const inputValue11 = priceInput11.value;
+    const inputValue12 = priceInput12.value;
+    const inputValue13 = priceInput13.value;
+    const inputValue14 = priceInput14.value;
+    const inputValue15 = priceInput15.value;
+    const inputValue16 = priceInput16.value;
     const infoValue = info.value
     const infoValue2 = info2.value
     const incomePriceDom = document.getElementById("income-price");
@@ -330,6 +470,8 @@ window.addEventListener('load', () => {
       + Number(inputValue4) + Number(inputValue5) + Number(inputValue6)
       + Number(inputValue7) + Number(inputValue8) + Number(inputValue9)
       + Number(inputValue10) + Number(inputValue11)
+      + Number(inputValue12) + Number(inputValue13) + Number(inputValue14)
+      + Number(inputValue15) + Number(inputValue16)
     const add12 = Number(infoValue) + Number(infoValue2)
     const numberWithComma = new Intl.NumberFormat();
     incomePriceDom.innerHTML = numberWithComma.format(add12);
@@ -348,6 +490,11 @@ window.addEventListener('load', () => {
     const inputValue9 = priceInput9.value;
     const inputValue10 = priceInput10.value;
     const inputValue11 = priceInput11.value;
+    const inputValue12 = priceInput12.value;
+    const inputValue13 = priceInput13.value;
+    const inputValue14 = priceInput14.value;
+    const inputValue15 = priceInput15.value;
+    const inputValue16 = priceInput16.value;
     const infoValue = info.value
     const infoValue2 = info2.value
     const incomePriceDom = document.getElementById("income-price");
@@ -357,10 +504,182 @@ window.addEventListener('load', () => {
       + Number(inputValue4) + Number(inputValue5) + Number(inputValue6)
       + Number(inputValue7) + Number(inputValue8) + Number(inputValue9)
       + Number(inputValue10) + Number(inputValue11)
+      + Number(inputValue12) + Number(inputValue13) + Number(inputValue14)
+      + Number(inputValue15) + Number(inputValue16)
     const add13 = Number(infoValue) + Number(infoValue2)
     const numberWithComma = new Intl.NumberFormat();
     incomePriceDom.innerHTML = numberWithComma.format(add13);
     outcomeDom.innerHTML = numberWithComma.format(sum13);
     addPriceDom.innerHTML = numberWithComma.format(Math.floor(add13 - sum13));
+  })
+  priceInput12.addEventListener("input", () => {
+    const inputValue1 = priceInput1.value;
+    const inputValue2 = priceInput2.value;
+    const inputValue3 = priceInput3.value;
+    const inputValue4 = priceInput4.value;
+    const inputValue5 = priceInput5.value;
+    const inputValue6 = priceInput6.value;
+    const inputValue7 = priceInput7.value;
+    const inputValue8 = priceInput8.value;
+    const inputValue9 = priceInput9.value;
+    const inputValue10 = priceInput10.value;
+    const inputValue11 = priceInput11.value;
+    const inputValue12 = priceInput12.value;
+    const inputValue13 = priceInput13.value;
+    const inputValue14 = priceInput14.value;
+    const inputValue15 = priceInput15.value;
+    const inputValue16 = priceInput16.value;
+    const infoValue = info.value
+    const infoValue2 = info2.value
+    const incomePriceDom = document.getElementById("income-price");
+    const outcomeDom = document.getElementById("outcome-price");
+    const addPriceDom = document.getElementById("add-price");
+    const sum14 = Number(inputValue1) + Number(inputValue2) + Number(inputValue3)
+      + Number(inputValue4) + Number(inputValue5) + Number(inputValue6)
+      + Number(inputValue7) + Number(inputValue8) + Number(inputValue9)
+      + Number(inputValue10) + Number(inputValue11)
+      + Number(inputValue12) + Number(inputValue13) + Number(inputValue14)
+      + Number(inputValue15) + Number(inputValue16)
+    const add14 = Number(infoValue) + Number(infoValue2)
+    const numberWithComma = new Intl.NumberFormat();
+    incomePriceDom.innerHTML = numberWithComma.format(add14);
+    outcomeDom.innerHTML = numberWithComma.format(sum14);
+    addPriceDom.innerHTML = numberWithComma.format(Math.floor(add14 - sum14));
+  })
+  priceInput13.addEventListener("input", () => {
+    const inputValue1 = priceInput1.value;
+    const inputValue2 = priceInput2.value;
+    const inputValue3 = priceInput3.value;
+    const inputValue4 = priceInput4.value;
+    const inputValue5 = priceInput5.value;
+    const inputValue6 = priceInput6.value;
+    const inputValue7 = priceInput7.value;
+    const inputValue8 = priceInput8.value;
+    const inputValue9 = priceInput9.value;
+    const inputValue10 = priceInput10.value;
+    const inputValue11 = priceInput11.value;
+    const inputValue12 = priceInput12.value;
+    const inputValue13 = priceInput13.value;
+    const inputValue14 = priceInput14.value;
+    const inputValue15 = priceInput15.value;
+    const inputValue16 = priceInput16.value;
+    const infoValue = info.value
+    const infoValue2 = info2.value
+    const incomePriceDom = document.getElementById("income-price");
+    const outcomeDom = document.getElementById("outcome-price");
+    const addPriceDom = document.getElementById("add-price");
+    const sum15 = Number(inputValue1) + Number(inputValue2) + Number(inputValue3)
+      + Number(inputValue4) + Number(inputValue5) + Number(inputValue6)
+      + Number(inputValue7) + Number(inputValue8) + Number(inputValue9)
+      + Number(inputValue10) + Number(inputValue11)
+      + Number(inputValue12) + Number(inputValue13) + Number(inputValue14)
+      + Number(inputValue15) + Number(inputValue16)
+    const add15 = Number(infoValue) + Number(infoValue2)
+    const numberWithComma = new Intl.NumberFormat();
+    incomePriceDom.innerHTML = numberWithComma.format(add15);
+    outcomeDom.innerHTML = numberWithComma.format(sum15);
+    addPriceDom.innerHTML = numberWithComma.format(Math.floor(add15 - sum15));
+  })
+  priceInput14.addEventListener("input", () => {
+    const inputValue1 = priceInput1.value;
+    const inputValue2 = priceInput2.value;
+    const inputValue3 = priceInput3.value;
+    const inputValue4 = priceInput4.value;
+    const inputValue5 = priceInput5.value;
+    const inputValue6 = priceInput6.value;
+    const inputValue7 = priceInput7.value;
+    const inputValue8 = priceInput8.value;
+    const inputValue9 = priceInput9.value;
+    const inputValue10 = priceInput10.value;
+    const inputValue11 = priceInput11.value;
+    const inputValue12 = priceInput12.value;
+    const inputValue13 = priceInput13.value;
+    const inputValue14 = priceInput14.value;
+    const inputValue15 = priceInput15.value;
+    const inputValue16 = priceInput16.value;
+    const infoValue = info.value
+    const infoValue2 = info2.value
+    const incomePriceDom = document.getElementById("income-price");
+    const outcomeDom = document.getElementById("outcome-price");
+    const addPriceDom = document.getElementById("add-price");
+    const sum16 = Number(inputValue1) + Number(inputValue2) + Number(inputValue3)
+      + Number(inputValue4) + Number(inputValue5) + Number(inputValue6)
+      + Number(inputValue7) + Number(inputValue8) + Number(inputValue9)
+      + Number(inputValue10) + Number(inputValue11)
+      + Number(inputValue12) + Number(inputValue13) + Number(inputValue14)
+      + Number(inputValue15) + Number(inputValue16)
+    const add16 = Number(infoValue) + Number(infoValue2)
+    const numberWithComma = new Intl.NumberFormat();
+    incomePriceDom.innerHTML = numberWithComma.format(add16);
+    outcomeDom.innerHTML = numberWithComma.format(sum16);
+    addPriceDom.innerHTML = numberWithComma.format(Math.floor(add16 - sum16));
+  })
+  priceInput15.addEventListener("input", () => {
+    const inputValue1 = priceInput1.value;
+    const inputValue2 = priceInput2.value;
+    const inputValue3 = priceInput3.value;
+    const inputValue4 = priceInput4.value;
+    const inputValue5 = priceInput5.value;
+    const inputValue6 = priceInput6.value;
+    const inputValue7 = priceInput7.value;
+    const inputValue8 = priceInput8.value;
+    const inputValue9 = priceInput9.value;
+    const inputValue10 = priceInput10.value;
+    const inputValue11 = priceInput11.value;
+    const inputValue12 = priceInput12.value;
+    const inputValue13 = priceInput13.value;
+    const inputValue14 = priceInput14.value;
+    const inputValue15 = priceInput15.value;
+    const inputValue16 = priceInput16.value;
+    const infoValue = info.value
+    const infoValue2 = info2.value
+    const incomePriceDom = document.getElementById("income-price");
+    const outcomeDom = document.getElementById("outcome-price");
+    const addPriceDom = document.getElementById("add-price");
+    const sum15 = Number(inputValue1) + Number(inputValue2) + Number(inputValue3)
+      + Number(inputValue4) + Number(inputValue5) + Number(inputValue6)
+      + Number(inputValue7) + Number(inputValue8) + Number(inputValue9)
+      + Number(inputValue10) + Number(inputValue11)
+      + Number(inputValue12) + Number(inputValue13) + Number(inputValue14)
+      + Number(inputValue15) + Number(inputValue16)
+    const numberWithComma = new Intl.NumberFormat();
+    const add15 = Number(infoValue) + Number(infoValue2)
+    incomePriceDom.innerHTML = numberWithComma.format(add15);
+    outcomeDom.innerHTML = numberWithComma.format(sum15);
+    addPriceDom.innerHTML = numberWithComma.format(Math.floor(add15 - sum15));
+  })
+  priceInput16.addEventListener("input", () => {
+    const inputValue1 = priceInput1.value;
+    const inputValue2 = priceInput2.value;
+    const inputValue3 = priceInput3.value;
+    const inputValue4 = priceInput4.value;
+    const inputValue5 = priceInput5.value;
+    const inputValue6 = priceInput6.value;
+    const inputValue7 = priceInput7.value;
+    const inputValue8 = priceInput8.value;
+    const inputValue9 = priceInput9.value;
+    const inputValue10 = priceInput10.value;
+    const inputValue11 = priceInput11.value;
+    const inputValue12 = priceInput12.value;
+    const inputValue13 = priceInput13.value;
+    const inputValue14 = priceInput14.value;
+    const inputValue15 = priceInput15.value;
+    const inputValue16 = priceInput16.value;
+    const infoValue = info.value
+    const infoValue2 = info2.value
+    const incomePriceDom = document.getElementById("income-price");
+    const outcomeDom = document.getElementById("outcome-price");
+    const addPriceDom = document.getElementById("add-price");
+    const sum16 = Number(inputValue1) + Number(inputValue2) + Number(inputValue3)
+      + Number(inputValue4) + Number(inputValue5) + Number(inputValue6)
+      + Number(inputValue7) + Number(inputValue8) + Number(inputValue9)
+      + Number(inputValue10) + Number(inputValue11)
+      + Number(inputValue12) + Number(inputValue13) + Number(inputValue14)
+      + Number(inputValue15) + Number(inputValue16)
+    const numberWithComma = new Intl.NumberFormat();
+    const add16 = Number(infoValue) + Number(infoValue2)
+    incomePriceDom.innerHTML = numberWithComma.format(add16);
+    outcomeDom.innerHTML = numberWithComma.format(sum16);
+    addPriceDom.innerHTML = numberWithComma.format(Math.floor(add16 - sum16));
   })
 });

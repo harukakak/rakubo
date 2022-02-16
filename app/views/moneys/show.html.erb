@@ -153,6 +153,14 @@
           end %></td>
         </tr>
         <tr>
+          <th class="detail-item"><%= Category1.find(@money.item_name12_id).name %></th>
+          <td class="detail-value"><%= if @money.payment15_money.nil?
+          ""
+          else
+          @money.payment15_money.to_s(:delimited)
+          end %></td>
+        </tr>
+        <tr>
           <th class="detail-item"><%= @money.item_name1_self %></th>
           <td class="detail-value"><%= if @money.payment8_money.nil?
           ""
@@ -188,6 +196,11 @@
             0
             else
               @money.payment9_money
+            end + 
+            if @money.payment15_money.nil?
+            0
+            else
+              @money.payment15_money
             end + 
            if @money.payment8_money.nil?
              0
@@ -243,6 +256,14 @@
           end %></td>
         </tr>
         <tr>
+          <th class="detail-item"><%= Category1.find(@money.item_name13_id).name %></th>
+          <td class="detail-value"><%= if @money.payment16_money.nil?
+          ""
+          else
+          @money.payment16_money.to_s(:delimited)
+          end %></td>
+        </tr>
+        <tr>
           <th class="detail-item"><%= @money.item_name3_self %></th>
           <td class="detail-value"><%= if @money.payment11_money.nil?
           ""
@@ -274,6 +295,11 @@
              else
              @money.payment13_money
            end +
+           if @money.payment16_money.nil?
+            0
+            else
+              @money.payment16_money
+            end +
            if @money.payment14_money.nil?
              0
              else
@@ -362,6 +388,16 @@
              0
            else
              @money.payment14_money
+          end +
+          if @money.payment15_money.nil?
+             0
+           else
+             @money.payment15_money
+          end +
+          if @money.payment16_money.nil?
+             0
+           else
+             @money.payment16_money
           end).to_s(:delimited) %></td>
         </tr>
       </tbody>

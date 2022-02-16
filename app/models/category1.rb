@@ -11,7 +11,8 @@ class Category1 < ActiveHash::Base
     { id: 9, name: '通信費' },
     { id: 10, name: '交通費' },
     { id: 11, name: '家賃' },
-    { id: 12, name: 'その他固定費' }
+    { id: 12, name: 'ネットショッピング' },
+    { id: 13, name: 'その他固定費' }
   ]
 
   include ActiveHash::Associations

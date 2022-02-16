@@ -24,6 +24,8 @@ class CreateMoney < ActiveRecord::Migration[6.0]
       t.integer    :payment12_money
       t.integer    :payment13_money
       t.integer    :payment14_money
+      t.integer    :payment15_money
+      t.integer    :payment16_money
       t.integer    :item_name1_id,           null: false
       t.integer    :item_name2_id
       t.integer    :item_name3_id
@@ -35,6 +37,8 @@ class CreateMoney < ActiveRecord::Migration[6.0]
       t.integer    :item_name9_id
       t.integer    :item_name10_id
       t.integer    :item_name11_id
+      t.integer    :item_name12_id
+      t.integer    :item_name13_id
       t.string     :item_name1_self
       t.string     :item_name2_self
       t.string     :item_name3_self
