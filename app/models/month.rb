@@ -12,7 +12,7 @@ class Month < ActiveHash::Base
     { id: 10, name: '9月' },
     { id: 11, name: '10月' },
     { id: 12, name: '11月' },
-    { id: 13, name: '12月' },
+    { id: 13, name: '12月' }
   ]
 
   include ActiveHash::Associations

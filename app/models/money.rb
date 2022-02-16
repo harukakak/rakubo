@@ -6,6 +6,7 @@ class Money < ApplicationRecord
   belongs_to :year
   belongs_to :user
 
-  validates :year_id, :month_id, numericality: { other_than: 1, message: "を選択してください" }
-  validates :year_id, :month_id, :income_account_name, :payment_account1_name, :income_money, :payment1_money, :item_name1_id, presence: true
+  validates :year_id, :month_id, numericality: { other_than: 1, message: 'を選択してください' }
+  validates :year_id, :month_id, :income_account_name, :payment_account1_name, :income_money, :payment1_money, :item_name1_id,
+            presence: true
 end
