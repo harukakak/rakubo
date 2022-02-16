@@ -20,6 +20,7 @@ class MoneysController < ApplicationController
       @lastmoney = lastmonthdatasearch()
       if @lastmoney.present?
       @money = Money.new(
+        year: @lastmoney.year,
         month: @lastmoney.month,
         income_account_name: @lastmoney.income_account_name,
         payment_account1_name: @lastmoney.payment_account1_name,
@@ -108,12 +109,13 @@ class MoneysController < ApplicationController
   private
 
   def money_params
-    params.require(:money).permit(:month, :income_account_name, :payment_account1_name,
+    params.require(:money).permit(:year_id, :month_id, :income_account_name, :payment_account1_name,
         :income_money, :payment1_money, :item_name1_id, :item_name2_id,
         :item_name3_id, :item_name4_id, :item_name5_id,:item_name6_id, :item_name7_id,
-        :item_name8_id, :payment_account2_name, :payment_account3_name, :payment2_money,
+        :item_name8_id,:item_name9_id, :item_name10_id, :item_name11_id, :payment_account2_name, :payment_account3_name, :payment2_money,
         :payment3_money, :payment4_money, :payment5_money, :payment6_money, :payment7_money,
-        :payment8_money, :payment9_money, :payment10_money, :payment11_money, :item_name1_self,
+        :payment8_money, :payment9_money, :payment10_money, :payment11_money, :payment12_money, :payment13_money,
+        :payment14_money, :item_name1_self,
         :item_name2_self, :item_name3_self, :income_account2_name, :income2_money ).merge(user_id: current_user.id)
   end
 end

@@ -17,12 +17,15 @@ https://rakubo0424.herokuapp.com/
 ## 利用方法
 ・ 新規アカウントを作成
 
-・ 右下の投稿ボタンから投稿画面へ遷移し管理簿の内容を投入
+・ 右下の保存ボタンから投稿画面へ遷移し管理簿の内容を投入
   必須項目に入力後、任意で支出口座が複数ある場合は投入したりカテゴリ毎に金額を投入
 
 ・ 登録後はトップページの下に投入した概要が表示され、クリックすると登録した詳細が閲覧可能
 
 ・ 詳細画面から再編集や削除が可能
+
+・ マイページで投稿ボタンから目標やメモを投入
+  登録後はマイページから編集や削除が可能
 
 ## アプリケーションを作成した背景
 今まで私自身お金の管理は給料が振り込まれたタイミングで、お金を振り分けて管理していた。
@@ -42,6 +45,8 @@ https://rakubo0424.herokuapp.com/
 
 ・副業をしている人も多いため、収入が一つとは限らないから、家計簿登録画面で収入口座を任意で2つまで登録できるようにした。
 
+・ユーザーは国内向けのため、一目でエラー内容がわかるようにエラー文を日本語化した。
+
 ## 洗い出した要件
 https://docs.google.com/spreadsheets/d/1RHoc-swkgrImLceivdY4ngvRlb524aPtwhxyJV6TQYQ/edit#gid=982722306
 
@@ -56,6 +61,9 @@ https://docs.google.com/spreadsheets/d/1RHoc-swkgrImLceivdY4ngvRlb524aPtwhxyJV6T
 [![Image from Gyazo](https://i.gyazo.com/880e417fcbe1ee97e0b350dfe8ca0ad8.png)](https://gyazo.com/880e417fcbe1ee97e0b350dfe8ca0ad8)
 ・投稿詳細画面では投稿した内容の確認と編集と削除ができる
 [![Image from Gyazo](https://i.gyazo.com/a9e552eb9dfaf53e9d33c57fbf96bd4e.png)](https://gyazo.com/a9e552eb9dfaf53e9d33c57fbf96bd4e)
+・ユーザー詳細画面では投稿したメモや目標の確認と編集と削除ができる
+
+・目標とメモを投稿できる
 
 ## 実装予定の機能
 月毎の支出のカテゴリ別の棒グラフ機能を実装中
@@ -79,7 +87,8 @@ https://docs.google.com/spreadsheets/d/1RHoc-swkgrImLceivdY4ngvRlb524aPtwhxyJV6T
 
 | Column               | Type       | Options                        |
 | -------------------- | ---------- | ------------------------------ |
-| month                | string     | null: false                    |
+| year                 | integer    | null: false                    |
+| month                | integer    | null: false                    |
 | income_account_name  | string     | null: false                    |
 | income_account2_name | string     |                                |
 | payment_account1_name| string     | null: false                    |
@@ -98,6 +107,9 @@ https://docs.google.com/spreadsheets/d/1RHoc-swkgrImLceivdY4ngvRlb524aPtwhxyJV6T
 | payment9_money       | integer    |                                |
 | payment10_money      | integer    |                                |
 | payment11_money      | integer    |                                |
+| payment12_money      | integer    |                                |
+| payment13_money      | integer    |                                |
+| payment14_money      | integer    |                                |
 | item_name1_id        | integer    | null: false                    |
 | item_name2_id        | integer    |                                |
 | item_name3_id        | integer    |                                |
@@ -106,6 +118,9 @@ https://docs.google.com/spreadsheets/d/1RHoc-swkgrImLceivdY4ngvRlb524aPtwhxyJV6T
 | item_name6_id        | integer    |                                |
 | item_name7_id        | integer    |                                |
 | item_name8_id        | integer    |                                |
+| item_name9_id        | integer    |                                |
+| item_name10_id       | integer    |                                |
+| item_name11_id       | integer    |                                |
 | item_name1_self      | integer    |                                |
 | item_name2_self      | integer    |                                |
 | item_name3_self      | integer    |                                |

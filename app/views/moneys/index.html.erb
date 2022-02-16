@@ -71,7 +71,7 @@
             <%= link_to money_path(money.id) , method: :get do %>
               <div class='item-info'>
                 <h2 class='heading tag'>
-                  <%= money.month %>
+                  <%= Year.find(money.year_id).name %><%= Month.find(money.month_id).name %>
                 </h2>
                 <h2 class='heading2 tag'>
                   収入額：

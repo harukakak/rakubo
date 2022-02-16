@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_11_022919) do
+ActiveRecord::Schema.define(version: 2022_02_10_015959) do
 
   create_table "memos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "target"
@@ -22,12 +22,15 @@ ActiveRecord::Schema.define(version: 2022_02_11_022919) do
   end
 
   create_table "money", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "month", null: false
+    t.integer "year_id", null: false
+    t.integer "month_id", null: false
     t.string "income_account_name", null: false
+    t.string "income_account2_name"
     t.string "payment_account1_name", null: false
     t.string "payment_account2_name"
     t.string "payment_account3_name"
     t.integer "income_money", null: false
+    t.integer "income2_money"
     t.integer "payment1_money", null: false
     t.integer "payment2_money"
     t.integer "payment3_money"
@@ -39,6 +42,9 @@ ActiveRecord::Schema.define(version: 2022_02_11_022919) do
     t.integer "payment9_money"
     t.integer "payment10_money"
     t.integer "payment11_money"
+    t.integer "payment12_money"
+    t.integer "payment13_money"
+    t.integer "payment14_money"
     t.integer "item_name1_id", null: false
     t.integer "item_name2_id"
     t.integer "item_name3_id"
@@ -47,14 +53,15 @@ ActiveRecord::Schema.define(version: 2022_02_11_022919) do
     t.integer "item_name6_id"
     t.integer "item_name7_id"
     t.integer "item_name8_id"
+    t.integer "item_name9_id"
+    t.integer "item_name10_id"
+    t.integer "item_name11_id"
     t.string "item_name1_self"
     t.string "item_name2_self"
     t.string "item_name3_self"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "income_account2_name"
-    t.integer "income2_money"
     t.index ["user_id"], name: "index_money_on_user_id"
   end
 

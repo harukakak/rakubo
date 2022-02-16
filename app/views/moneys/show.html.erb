@@ -3,12 +3,12 @@
 
 <div class="item-show">
   <div class="item-box">
-    <h2 class="name">
-      <%= @money.month %>
+    <h2 class="name-title">
+      収入：<%= Year.find(@money.year_id).name %><%= Month.find(@money.month_id).name %>
     </h2>
     <div class="item-price-box">
       <span class="item-price">
-      口座名1（収入）
+      口座名1
       </span>
       <span class="name-title">
         <%= @money.income_account_name %>
@@ -16,7 +16,7 @@
     </div>
     <div class="item-price-box">
       <span class="item-price">
-      収入金額1 
+      金額1 
       </span>
       <span class="name-title">
         <%= @money.income_money.to_s(:delimited) %>円
@@ -24,7 +24,7 @@
     </div>
     <div class="item-price-box">
       <span class="item-price">
-      口座名2（収入）
+      口座名2
       </span>
       <span class="name-title">
         <%= @money.income_account2_name %>
@@ -32,7 +32,7 @@
     </div>
     <div class="item-price-box">
       <span class="item-price">
-      収入金額2 
+      金額2 
       </span>
       <span class="name-title">
         <%= if @money.income2_money.nil?
@@ -75,22 +75,6 @@
            end %></td>
         </tr>
         <tr>
-          <th class="detail-item"><%= Category2.find(@money.item_name3_id).name %></th>
-          <td class="detail-value"><%= if @money.payment3_money.nil?
-          ""
-          else
-          @money.payment3_money.to_s(:delimited)
-          end %></td>
-        </tr>
-        <tr>
-          <th class="detail-item"><%= Category3.find(@money.item_name4_id).name %></th>
-          <td class="detail-value"><%= if @money.payment4_money.nil?
-          ""
-          else
-          @money.payment4_money.to_s(:delimited)
-          end %></td>
-        </tr>
-        <tr>
           <th class="detail-item"><%= @money.item_name2_self %></th>
           <td class="detail-value"><%= if @money.payment5_money.nil?
           ""
@@ -106,16 +90,6 @@
             0
            else
             @money.payment2_money
-           end +
-           if @money.payment3_money.nil?
-             0
-             else
-             @money.payment3_money
-           end +
-           if @money.payment4_money.nil?
-             0
-             else
-             @money.payment4_money
            end +
            if @money.payment5_money.nil?
              0
@@ -139,7 +113,23 @@
           <td class="detail-value1">金額</td>
         </tr>
         <tr>
-          <th class="detail-item"><%= Category4.find(@money.item_name5_id).name %></th>
+          <th class="detail-item"><%= Category1.find(@money.item_name3_id).name %></th>
+          <td class="detail-value"><%= if @money.payment3_money.nil?
+          ""
+          else
+          @money.payment3_money.to_s(:delimited)
+          end %></td>
+        </tr>
+        <tr>
+          <th class="detail-item"><%= Category1.find(@money.item_name4_id).name %></th>
+          <td class="detail-value"><%= if @money.payment4_money.nil?
+          ""
+          else
+          @money.payment4_money.to_s(:delimited)
+          end %></td>
+        </tr>
+        <tr>
+          <th class="detail-item"><%= Category1.find(@money.item_name5_id).name %></th>
           <td class="detail-value"><%= if @money.payment6_money.nil?
           ""
           else
@@ -147,11 +137,19 @@
           end %></td>
         </tr>
         <tr>
-          <th class="detail-item"><%= Category5.find(@money.item_name6_id).name %></th>
+          <th class="detail-item"><%= Category1.find(@money.item_name6_id).name %></th>
           <td class="detail-value"><%= if @money.payment7_money.nil?
           ""
           else
           @money.payment7_money.to_s(:delimited)
+          end %></td>
+        </tr>
+        <tr>
+          <th class="detail-item"><%= Category1.find(@money.item_name7_id).name %></th>
+          <td class="detail-value"><%= if @money.payment9_money.nil?
+          ""
+          else
+          @money.payment9_money.to_s(:delimited)
           end %></td>
         </tr>
         <tr>
@@ -166,7 +164,17 @@
         <tr>
           <th class="detail-item1">合計</th>
           <td class="detail-value1">
-          <%= (if @money.payment6_money.nil?
+          <%= (if @money.payment3_money.nil?
+             0
+             else
+             @money.payment3_money
+           end +
+            if @money.payment4_money.nil?
+             0
+             else
+             @money.payment4_money
+           end +
+            if @money.payment6_money.nil?
             0
             else
               @money.payment6_money
@@ -176,6 +184,11 @@
            else
             @money.payment7_money
            end +
+           if @money.payment9_money.nil?
+            0
+            else
+              @money.payment9_money
+            end + 
            if @money.payment8_money.nil?
              0
              else
@@ -198,19 +211,35 @@
           <td class="detail-value1">金額</td>
         </tr>
         <tr>
-          <th class="detail-item"><%= Category6.find(@money.item_name7_id).name %></th>
-          <td class="detail-value"><%= if @money.payment9_money.nil?
-          ""
-          else
-          @money.payment9_money.to_s(:delimited)
-          end %></td>
-        </tr>
-        <tr>
-          <th class="detail-item"><%= Category7.find(@money.item_name8_id).name %></th>
+          <th class="detail-item"><%= Category1.find(@money.item_name8_id).name %></th>
           <td class="detail-value"><%= if @money.payment10_money.nil?
           ""
           else
           @money.payment10_money.to_s(:delimited)
+          end %></td>
+        </tr>
+        <tr>
+          <th class="detail-item"><%= Category1.find(@money.item_name9_id).name %></th>
+          <td class="detail-value"><%= if @money.payment12_money.nil?
+          ""
+          else
+          @money.payment12_money.to_s(:delimited)
+          end %></td>
+        </tr>
+        <tr>
+          <th class="detail-item"><%= Category1.find(@money.item_name10_id).name %></th>
+          <td class="detail-value"><%= if @money.payment13_money.nil?
+          ""
+          else
+          @money.payment13_money.to_s(:delimited)
+          end %></td>
+        </tr>
+        <tr>
+          <th class="detail-item"><%= Category1.find(@money.item_name11_id).name %></th>
+          <td class="detail-value"><%= if @money.payment14_money.nil?
+          ""
+          else
+          @money.payment14_money.to_s(:delimited)
           end %></td>
         </tr>
         <tr>
@@ -224,11 +253,7 @@
                 <tr>
           <th class="detail-item1">合計</th>
           <td class="detail-value1">
-          <%= (if @money.payment9_money.nil?
-            0
-            else
-              @money.payment9_money
-            end + 
+          <%= (
            if @money.payment10_money.nil?
             0
            else
@@ -238,6 +263,21 @@
              0
              else
              @money.payment11_money
+           end +
+           if @money.payment12_money.nil?
+             0
+             else
+             @money.payment12_money
+           end +
+           if @money.payment13_money.nil?
+             0
+             else
+             @money.payment13_money
+           end +
+           if @money.payment14_money.nil?
+             0
+             else
+             @money.payment14_money
            end).to_s(:delimited) %></td>
         </tr>
       </tbody>
@@ -307,6 +347,21 @@
              0
            else
              @money.payment11_money
+          end +
+          if @money.payment12_money.nil?
+             0
+           else
+             @money.payment12_money
+          end +
+          if @money.payment13_money.nil?
+             0
+           else
+             @money.payment13_money
+          end +
+          if @money.payment14_money.nil?
+             0
+           else
+             @money.payment14_money
           end).to_s(:delimited) %></td>
         </tr>
       </tbody>

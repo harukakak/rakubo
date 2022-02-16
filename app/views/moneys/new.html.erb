@@ -11,11 +11,18 @@
 
     <%= render 'shared/error_messages', model: f.object %>
     <%# 収入 %>
-      <div class="weight-bold-text">
+    <div class="month-year">
+      <div class="weight-bold-text2">
+          年
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_select(:year_id, Year.all, :id, :name, {}, {class:"select-box2", id:"item-status"}) %>
+      <div class="weight-bold-text2">
           月
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :month, class:"items-short", id:"item", placeholder:"例（必須 2022/2)" %>
+      <%= f.collection_select(:month_id, Month.all, :id, :name, {}, {class:"select-box2", id:"item-status"}) %>
+    </div>
       <div class="weight-bold">収入1</div>
       <div class="weight-bold-text">
         口座名
@@ -38,7 +45,7 @@
       <%= f.text_area :income2_money, class:"items-short", id:"item-info2", placeholder:"金額（必須 半角数字で入力）" %>
     <%# /収入 %>
 
-    <%# 支出 %>
+    <%# 支出1 %>
       <div class="weight-bold">支出1</div>
         <div class="form">
           <div class="weight-bold-text">
@@ -79,33 +86,6 @@
             <li class="weight-bold-text">
               カテゴリー
             <a>
-            <%= f.collection_select(:item_name3_id, Category2.all, :id, :name, {}, {class:"select-box", id:"item-status"}) %>
-            </a>
-            </li>
-            <li class="weight-bold-text">
-              金額
-            <a>
-            <%= f.text_area :payment3_money, class:"items-short", id:"item-price3", placeholder:"（半角数値のみ)" %>
-            </a>
-            </li>
-          </ul>
-          <ul class="items-detail">
-            <li class="weight-bold-text">
-              カテゴリー
-            <a>
-            <%= f.collection_select(:item_name4_id, Category3.all, :id, :name, {}, {class:"select-box", id:"item-status"}) %>
-            </a>
-            </li>
-            <li class="weight-bold-text">
-              金額
-            <a>
-            <%= f.text_area :payment4_money, class:"items-short", id:"item-price4", placeholder:"（半角数値のみ)" %>
-            </a>
-            </li>
-          <ul class="items-detail">
-            <li class="weight-bold-text">
-              カテゴリー
-            <a>
             <%= f.text_area :item_name2_self, class:"items-short",id:"item-status", placeholder:"例（ Amazon定期便)" %>
             </a>
             </li>
@@ -117,8 +97,8 @@
             </li>
           </ul>
         </div>
-    <%# 支出 %>
-    <%# 支出任意 %>
+    <%# 支出1 %>
+    <%# 支出2 %>
       <div class="weight-bold">支出2</div>
         <div class="form">
         <div class="weight-bold-text">
@@ -126,10 +106,38 @@
         </div>
         <%= f.text_area :payment_account2_name, class:"items-text", id:"item-name", placeholder:"例（○○のゆうちょ)" %>
         <ul class="items-detail">
+            <li class="weight-bold-text">
+              カテゴリー
+            <a>
+            <%= f.collection_select(:item_name3_id, Category1.all, :id, :name, {}, {class:"select-box", id:"item-status"}) %>
+            </a>
+            </li>
+            <li class="weight-bold-text">
+              金額
+            <a>
+            <%= f.text_area :payment3_money, class:"items-short", id:"item-price3", placeholder:"（半角数値のみ)" %>
+            </a>
+            </li>
+          </ul>
+        <ul class="items-detail">
+            <li class="weight-bold-text">
+              カテゴリー
+            <a>
+            <%= f.collection_select(:item_name4_id, Category1.all, :id, :name, {}, {class:"select-box", id:"item-status"}) %>
+            </a>
+            </li>
+            <li class="weight-bold-text">
+              金額
+            <a>
+            <%= f.text_area :payment4_money, class:"items-short", id:"item-price4", placeholder:"（半角数値のみ)" %>
+            </a>
+            </li>
+        </ul>
+        <ul class="items-detail">
           <li class="weight-bold-text">
             カテゴリー
           <a>
-          <%= f.collection_select(:item_name5_id, Category4.all, :id, :name, {}, {class:"select-box", id:"item-status"}) %>
+          <%= f.collection_select(:item_name5_id, Category1.all, :id, :name, {}, {class:"select-box", id:"item-status"}) %>
           </a>
           </li>
           <li class="weight-bold-text">
@@ -143,13 +151,27 @@
           <li class="weight-bold-text">
             カテゴリー
           <a>
-          <%= f.collection_select(:item_name6_id, Category5.all, :id, :name, {}, {class:"select-box", id:"item-status"}) %>
+          <%= f.collection_select(:item_name6_id, Category1.all, :id, :name, {}, {class:"select-box", id:"item-status"}) %>
           </a>
           </li>
           <li class="weight-bold-text">
             金額
           <a>
           <%= f.text_area :payment7_money, class:"items-short", id:"item-price7", placeholder:"（半角数値のみ)" %>
+          </a>
+          </li>
+        </ul>
+        <ul class="items-detail">
+          <li class="weight-bold-text">
+            カテゴリー
+          <a>
+          <%= f.collection_select(:item_name7_id, Category1.all, :id, :name, {}, {class:"select-box", id:"item-status"}) %>
+          </a>
+          </li>
+          <li class="weight-bold-text">
+            金額
+          <a>
+          <%= f.text_area :payment9_money, class:"items-short", id:"item-price9", placeholder:"（半角数値のみ)" %>
           </a>
           </li>
         </ul>
@@ -167,6 +189,8 @@
           </a>
           </li>
         </ul>
+      <%# /支出2 %>
+      <%# 支出3 %>
         <div class="weight-bold">支出3</div>
         <div class="form">
         <div class="weight-bold-text">
@@ -177,13 +201,13 @@
           <li class="weight-bold-text">
             カテゴリー
           <a>
-          <%= f.collection_select(:item_name7_id, Category6.all, :id, :name, {}, {class:"select-box", id:"item-status"}) %>
+          <%= f.collection_select(:item_name8_id, Category1.all, :id, :name, {}, {class:"select-box", id:"item-status"}) %>
           </a>
           </li>
           <li class="weight-bold-text">
             金額
           <a>
-          <%= f.text_area :payment9_money, class:"items-short", id:"item-price9", placeholder:"（半角数値のみ)" %>
+          <%= f.text_area :payment10_money, class:"items-short", id:"item-price10", placeholder:"（半角数値のみ)" %>
           </a>
           </li>
         </ul>
@@ -191,13 +215,41 @@
           <li class="weight-bold-text">
             カテゴリー
           <a>
-          <%= f.collection_select(:item_name8_id, Category7.all, :id, :name, {}, {class:"select-box", id:"item-status"}) %>
+          <%= f.collection_select(:item_name9_id, Category1.all, :id, :name, {}, {class:"select-box", id:"item-status"}) %>
           </a>
           </li>
           <li class="weight-bold-text">
             金額
           <a>
-          <%= f.text_area :payment10_money, class:"items-short", id:"item-price10", placeholder:"（半角数値のみ)" %>
+          <%= f.text_area :payment12_money, class:"items-short", id:"item-price10", placeholder:"（半角数値のみ)" %>
+          </a>
+          </li>
+        </ul>
+        <ul class="items-detail">
+          <li class="weight-bold-text">
+            カテゴリー
+          <a>
+          <%= f.collection_select(:item_name10_id, Category1.all, :id, :name, {}, {class:"select-box", id:"item-status"}) %>
+          </a>
+          </li>
+          <li class="weight-bold-text">
+            金額
+          <a>
+          <%= f.text_area :payment13_money, class:"items-short", id:"item-price10", placeholder:"（半角数値のみ)" %>
+          </a>
+          </li>
+        </ul>
+        <ul class="items-detail">
+          <li class="weight-bold-text">
+            カテゴリー
+          <a>
+          <%= f.collection_select(:item_name11_id, Category1.all, :id, :name, {}, {class:"select-box", id:"item-status"}) %>
+          </a>
+          </li>
+          <li class="weight-bold-text">
+            金額
+          <a>
+          <%= f.text_area :payment14_money, class:"items-short", id:"item-price10", placeholder:"（半角数値のみ)" %>
           </a>
           </li>
         </ul>
@@ -216,7 +268,7 @@
           </li>
         </ul>
       </div>
-    <%# /支出任意 %>
+    <%# /支出3 %>
     <%# 差額 %>
     <div class="sell-price">
       <table class="detail-table">
