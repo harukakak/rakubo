@@ -19,7 +19,7 @@
 }
 
 .list-left {
-  width: 5vw;
+
   height: 8vh;
 }
 
@@ -53,4 +53,10 @@
 .sign-up {
   text-decoration: none;
   color: #333333;
+}
+
+@media screen and (max-width: 480px) {
+  .list-left {
+    width: 15vw;
+  }
 }
