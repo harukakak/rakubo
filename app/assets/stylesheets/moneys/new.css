@@ -278,3 +278,12 @@ li a {
   margin: 30px 15px;
   padding: 1vh 5vw;
 }
+
+@media screen and (max-width: 480px) {
+.indispensable {
+  margin-left: 2px;
+  padding: 3px;
+  font-size: 5px;
+}
+
+}

@@ -12,3 +12,17 @@
   width: 10vw;
   height: 10vh;
 }
+
+@media screen and (max-width: 480px) {
+
+  .second-header {
+    min-width: 75%;
+    height: 100px;
+  }
+
+  .second-logo {
+    width: 15vw;
+    height: 8vh;
+  }
+
+  }

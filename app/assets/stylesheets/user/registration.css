@@ -160,3 +160,73 @@
   text-align: center;
   cursor: pointer;
 }
+
+@media screen and (max-width: 480px) {
+
+  .registration-main {
+    min-width: 100%;
+  }
+
+  .form-header-text {
+    line-height: 80px;
+}
+
+.form-header {
+  font-size: 18px;
+}
+
+.form-text-wrap {
+  width: 150%;
+  height: 10%;
+}
+
+.form-text {
+  font-size: 8px;
+}
+
+.input-default {
+  width: 100%;
+  margin-top: 5px;
+  height: 30px;
+  padding: 6px 5px 8px;
+  font-size: 10px;
+  resize: none;
+}
+
+.form-group {
+  width: 100%;
+  padding-top: 10px;
+}
+
+.info-text {
+  font-size: 8px;
+  margin-top: 3px;
+}
+
+.form-bottom-text:last-child {
+  padding-bottom: 10px;
+}
+
+.form-bottom-text {
+  font-size: 8px;
+  text-align: center;
+}
+
+.register-red-btn {
+  width: 80%;
+  height: 30px;
+  line-height: 8px;
+  font-size: 10px;
+}
+
+.register-info {
+  margin-top: 10px;
+  font-size: 8px;
+}
+
+.form-wrap {
+  width: 80%;
+  padding-bottom: 20px;
+}
+
+  }
