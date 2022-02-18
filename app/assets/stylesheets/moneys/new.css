@@ -286,4 +286,70 @@ li a {
   font-size: 5px;
 }
 
+.items-sell-main {
+  background-color: #FFF;
+  width: 100%;
+  min-width: 300px;
+  padding: 10vh 5vw;
+}
+
+.items-sell-contents {
+  font-size: 10px;
+  min-width: 300px;
+}
+
+.items-sell-title {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.month-year {
+  margin-top: 15px;
+  display: flex;
+  justify-content: start;
+}
+
+.items-text {
+  width: 50vw;
+  height: 25px;
+  padding: 3px 0 5px 8px;
+  font-size: 10px;
+}
+
+.items-short {
+  width: 30vw;
+  height: 25px;
+  padding: 3px 0 5px 8px;
+  font-size: 8px;
+  margin: 5px 0 0 5px;
+}
+
+.sell-price {
+  width: 130px;
+  height: 90px;
+  bottom: 32px;
+  right: 5vw;
+  padding: 10px;
+}
+
+.price-content {
+  font-size: 11px;
+  padding-bottom: 3px;
+}
+
+.items-sell-footer {
+  width: 100%;
+  padding: 3ch 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.back-btn {
+  padding: 15px 35%;
+  text-decoration: none;
+  font-size: 12px;
+}
+
 }

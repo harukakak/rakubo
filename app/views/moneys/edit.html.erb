@@ -26,21 +26,21 @@ app/assets/stylesheets/items/new.css %>
         口座名
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :income_account_name, class:"items-text", id:"item-name", placeholder:"例（必須 ○○のゆうちょ)" %>
+      <%= f.text_area :income_account_name, class:"items-text", id:"item-name", placeholder:"例（○○のゆうちょ)" %>
       <div class="weight-bold-text">
         金額
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :income_money, class:"items-short", id:"item-info", placeholder:"金額（必須 半角数字で入力）" %>
+      <%= f.text_area :income_money, class:"items-short", id:"item-info", placeholder:"金額（半角数値のみ）" %>
       <div class="weight-bold">収入2</div>
       <div class="weight-bold-text">
         口座名
       </div>
-      <%= f.text_area :income_account2_name, class:"items-text", id:"item-name", placeholder:"例（必須 ○○のゆうちょ)" %>
+      <%= f.text_area :income_account2_name, class:"items-text", id:"item-name", placeholder:"例（○○のゆうちょ)" %>
       <div class="weight-bold-text">
         金額
       </div>
-      <%= f.text_area :income2_money, class:"items-short", id:"item-info2", placeholder:"金額（必須 半角数字で入力）" %>
+      <%= f.text_area :income2_money, class:"items-short", id:"item-info2", placeholder:"金額（半角数値のみ）" %>
     <%# /収入 %>
 
     <%# 支出 %>
@@ -50,7 +50,7 @@ app/assets/stylesheets/items/new.css %>
             口座名
             <span class="indispensable">必須</span>
           </div>
-          <%= f.text_area :payment_account1_name, class:"items-text", id:"item-name", placeholder:"例（必須 ○○のゆうちょ)" %>
+          <%= f.text_area :payment_account1_name, class:"items-text", id:"item-name", placeholder:"例（○○のゆうちょ)" %>
           <ul class="items-detail">
             <li class="weight-bold-text">
               カテゴリー
@@ -62,7 +62,7 @@ app/assets/stylesheets/items/new.css %>
               金額
             <span class="indispensable">必須</span>
             <a>
-            <%= f.text_area :payment1_money, class:"items-short", id:"item-price1", placeholder:"（必須 半角数値のみ)" %>
+            <%= f.text_area :payment1_money, class:"items-short", id:"item-price1", placeholder:"（半角数値のみ)" %>
             </a>
             </li>
           </ul>
