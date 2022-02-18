@@ -336,7 +336,7 @@ h3:after {
 }
 
 .item-contents {
-  padding: 3vh 0;
+  padding: 2vh 0;
 }
 
 .heading.tag {
@@ -361,8 +361,23 @@ h3:after {
   width: 10vh;
 }
 
-.title {
-  
+.heading5.tag {
+  font-size:1em;
+  line-height: 0.4;
+  padding: 5px 10px;
+}
+
+.heading5.tag:before {
+  top: 2px;
+  left: 2px;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+}
+
+.heading4.tag {
+  font-size: 10px;
+  padding: 0 5px;
+  font-size: 10px;
 }
 
 }

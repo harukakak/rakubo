@@ -1,8 +1,6 @@
 <%= render "shared/header" %>
 <div class='main'>
 <div class='item-contents'>
-
-
   <% @flg = 0 %>
   <% @memos.each do |memo| %>
     <% if memo.present? && current_user.id == memo.user_id %>
@@ -27,7 +25,6 @@
                 <h2 class='heading5 tag'>
                   目標：<%= image_tag 'camera.png' ,class: "list-left" %>
                 </h2>
-                
                 <span class='heading4 tag'>
                   <%= simple_format(memo.target) %>
                 </span>
