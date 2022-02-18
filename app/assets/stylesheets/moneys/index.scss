@@ -276,15 +276,16 @@ h3:after {
   }
 
   .service-title {
-    font-size: 30px;
+    font-size: 18px;
   }
 
   .service-explain {
-    font-size: 20px;
+    font-size: 15px;
   }
 
   .service-money {
     font-size: 15px;
+    padding: 0.5rem 1rem 0.5rem 2rem;
   }
 
   .feature-list-text {
@@ -320,8 +321,15 @@ h3:after {
 }
 
 .feature-contents > .title:before {
-  top: -12px;
+  top: -13px;
+  width: 100px;
+  height: 55px;
 }
+
+.feature-contents > .title {
+  font-size: 15px;
+}
+
 .item-contents > .title {
   font-size: 2vh;
   padding: 1rem 2rem;
@@ -345,6 +353,16 @@ h3:after {
 
 .lists-right {
   font-size: 15px;
+}
+
+.list-pict {
+  margin-bottom: 20px;
+  height: 10vh;
+  width: 10vh;
+}
+
+.title {
+  
 }
 
 }

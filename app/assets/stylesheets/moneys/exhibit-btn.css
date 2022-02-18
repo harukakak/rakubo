@@ -20,3 +20,21 @@
 .purchase-btn-icon {
   width: 60%;
 }
+
+@media screen and (max-width: 480px) {
+
+.purchase-btn {
+  width: 70px;
+  height: 70px;
+  padding: 5px;
+}
+
+.purchase-btn-text {
+  font-size: 13px;
+}
+
+.purchase-btn-icon {
+  width: 50%;
+}
+
+}

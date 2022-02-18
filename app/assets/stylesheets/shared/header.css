@@ -57,6 +57,11 @@
 
 @media screen and (max-width: 480px) {
   .list-left {
-    width: 15vw;
+    width: 12vw;
+    height: 6vh;
+  }
+
+  .login {
+    line-height: 23px;;
   }
 }
