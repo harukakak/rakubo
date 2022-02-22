@@ -105,6 +105,25 @@
   text-align: center;
 }
 
+.chart-wrapper {
+  width: 500px;
+  margin: 50px auto;
+  position: relative;
+ } 
+
+ .chart-center {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  top: 270px;
+  font-size: 15px;
+  /* width: 70vh; */
+  /* -webkit-transform: translateY(-30%); */
+  /* transform: translateY(-50%);  */
+}
+
 @media screen and (max-width: 480px) {
 
   .item-box {

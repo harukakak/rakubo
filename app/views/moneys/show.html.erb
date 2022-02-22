@@ -1,47 +1,50 @@
 <%= render "shared/header" %>
 
+<% percentageCnt = 1 %>
 
 <div class="item-show">
   <div class="item-box">
     <h2 class="name-title">
       収入：<%= Year.find(@money.year_id).name %><%= Month.find(@money.month_id).name %>
     </h2>
-    <div class="item-price-box">
-      <span class="item-price">
-      口座名1
-      </span>
-      <span class="name-title">
-        <%= @money.income_account_name %>
-      </span>
-    </div>
-    <div class="item-price-box">
-      <span class="item-price">
-      金額1 
-      </span>
-      <span class="name-title">
-        <%= @money.income_money.to_s(:delimited) %>円
-      </span>
-    </div>
-    <div class="item-price-box">
-      <span class="item-price">
-      口座名2
-      </span>
-      <span class="name-title">
-        <%= @money.income_account2_name %>
-      </span>
-    </div>
-    <div class="item-price-box">
-      <span class="item-price">
-      金額2 
-      </span>
-      <span class="name-title">
-        <%= if @money.income2_money.nil?
-          "0"
-          else
-          @money.income2_money.to_s(:delimited)
-          end %>円
-      </span>
-    </div>
+
+    <% if @money.income_account_name.present? && @money.income_money.present? %>
+      <div class="item-price-box">
+        <span class="item-price">
+        口座名1
+        </span>
+        <span class="name-title">
+          <%= @money.income_account_name %>
+        </span>
+      </div>
+      <div class="item-price-box">
+        <span class="item-price">
+        金額1 
+        </span>
+        <span class="name-title">
+          <%= @money.income_money.to_s(:delimited) %>円
+        </span>
+      </div>
+    <% end %>
+    
+    <% if @money.income_account2_name.present? && @money.income2_money.present? %>
+      <div class="item-price-box">
+        <span class="item-price">
+        口座名2
+        </span>
+        <span class="name-title">
+          <%= @money.income_account2_name %>
+        </span>
+      </div>
+      <div class="item-price-box">
+        <span class="item-price">
+        金額2 
+        </span>
+        <span class="name-title">
+          <%= @money.income2_money.to_s(:delimited) %>円
+        </span>
+      </div>
+    <% end %>
 
     <div class="bottun-box">
       <%= link_to "投稿の編集", edit_money_path, method: :get, class: "item-red-btn" %>
@@ -62,26 +65,30 @@
           <th class="detail-item1">カテゴリー</th>
           <td class="detail-value1">金額</td>
         </tr>
+
+        <% if @money.item_name1_id.present? && @money.payment1_money.present? %>
         <tr>
-          <th class="detail-item"><%= Category.find(@money.item_name1_id).name %></th>
-          <td class="detail-value"><%= @money.payment1_money.to_s(:delimited) %></td>
+          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= Category.find(@money.item_name1_id).name %></p></th>
+          <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>><%= @money.payment1_money.to_s(:delimited) %></p></td>
         </tr>
+        <% end %>
+
+        <% if @money.item_name2_id.present? && @money.payment2_money.present? %>
         <tr>
-          <th class="detail-item"><%= Category1.find(@money.item_name2_id).name %></th>
-          <td class="detail-value"><%= if @money.payment2_money.nil?
-           "--"
-          else
-           @money.payment2_money.to_s(:delimited)
-           end %></td>
+          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= Category1.find(@money.item_name2_id).name %></p></th>
+          <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+          <%= @money.payment2_money.to_s(:delimited) %></p></td>
         </tr>
+        <% end %>
+
+        <% if @money.item_name2_self.present? && @money.payment5_money.present? %>
         <tr>
-          <th class="detail-item"><%= @money.item_name2_self %></th>
-          <td class="detail-value"><%= if @money.payment5_money.nil?
-          "--"
-          else
-          @money.payment5_money.to_s(:delimited)
-          end %></td>
+          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= @money.item_name2_self %></p></th>
+          <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+          <%= @money.payment5_money.to_s(:delimited) %></p></td>
         </tr>
+        <% end %>
+
         <tr>
           <th class="detail-item1">合計</th>
           <td class="detail-value1">
@@ -112,62 +119,64 @@
           <th class="detail-item1">カテゴリー</th>
           <td class="detail-value1">金額</td>
         </tr>
+
+        <% if @money.item_name3_id.present? && @money.payment3_money.present? %>
         <tr>
-          <th class="detail-item"><%= Category1.find(@money.item_name3_id).name %></th>
-          <td class="detail-value"><%= if @money.payment3_money.nil?
-          "--"
-          else
-          @money.payment3_money.to_s(:delimited)
-          end %></td>
+          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= Category1.find(@money.item_name3_id).name %></p></th>
+          <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+          <%= @money.payment3_money.to_s(:delimited) %></p></td>
         </tr>
+        <% end %>
+
+        <% if @money.item_name4_id.present? && @money.payment4_money.present? %>
         <tr>
-          <th class="detail-item"><%= Category1.find(@money.item_name4_id).name %></th>
-          <td class="detail-value"><%= if @money.payment4_money.nil?
-          "--"
-          else
-          @money.payment4_money.to_s(:delimited)
-          end %></td>
+          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= Category1.find(@money.item_name4_id).name %></p></th>
+          <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+          <%= @money.payment4_money.to_s(:delimited) %></p></td>
         </tr>
+        <% end %>
+
+        <% if @money.item_name5_id.present? && @money.payment6_money.present? %>
         <tr>
-          <th class="detail-item"><%= Category1.find(@money.item_name5_id).name %></th>
-          <td class="detail-value"><%= if @money.payment6_money.nil?
-          "--"
-          else
-          @money.payment6_money.to_s(:delimited)
-          end %></td>
+          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= Category1.find(@money.item_name5_id).name %></p></th>
+          <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+          <%= @money.payment6_money.to_s(:delimited) %></p></td>
         </tr>
+        <% end %>
+
+        <% if @money.item_name6_id.present? && @money.payment7_money.present? %>
         <tr>
-          <th class="detail-item"><%= Category1.find(@money.item_name6_id).name %></th>
-          <td class="detail-value"><%= if @money.payment7_money.nil?
-          "--"
-          else
-          @money.payment7_money.to_s(:delimited)
-          end %></td>
+          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= Category1.find(@money.item_name6_id).name %></p></th>
+          <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+          <%= @money.payment7_money.to_s(:delimited) %></p></td>
         </tr>
+        <% end %>
+
+        
+        <% if @money.item_name7_id.present? && @money.payment9_money.present? %>
+          <tr>
+            <th class="detail-item"><p id="key<%= percentageCnt %>"><%= Category1.find(@money.item_name7_id).name %></p></th>
+            <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+            <%= @money.payment9_money.to_s(:delimited) %></p></td>
+          </tr>
+        <% end %>
+
+        <% if @money.item_name12_id.present? && @money.payment15_money.present? %>
+          <tr>
+            <th class="detail-item"><p id="key<%= percentageCnt %>"><%= Category1.find(@money.item_name12_id).name %></p></th>
+            <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+            <%= @money.payment15_money.to_s(:delimited) %></p></td>
+          </tr>
+        <% end %>
+
+        <% if @money.item_name1_self.present? && @money.payment8_money.present? %>
         <tr>
-          <th class="detail-item"><%= Category1.find(@money.item_name7_id).name %></th>
-          <td class="detail-value"><%= if @money.payment9_money.nil?
-          "--"
-          else
-          @money.payment9_money.to_s(:delimited)
-          end %></td>
+          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= @money.item_name1_self %></p></th>
+          <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+          <%= @money.payment8_money.to_s(:delimited) %></p></td>
         </tr>
-        <tr>
-          <th class="detail-item"><%= Category1.find(@money.item_name12_id).name %></th>
-          <td class="detail-value"><%= if @money.payment15_money.nil?
-          "--"
-          else
-          @money.payment15_money.to_s(:delimited)
-          end %></td>
-        </tr>
-        <tr>
-          <th class="detail-item"><%= @money.item_name1_self %></th>
-          <td class="detail-value"><%= if @money.payment8_money.nil?
-          "--"
-          else
-          @money.payment8_money.to_s(:delimited)
-          end %></td>
-        </tr>
+        <% end %>
+
         <tr>
         <tr>
           <th class="detail-item1">合計</th>
@@ -223,55 +232,56 @@
           <th class="detail-item1">カテゴリー</th>
           <td class="detail-value1">金額</td>
         </tr>
+
+        <% if @money.item_name8_id.present? && @money.payment10_money.present? %>
         <tr>
-          <th class="detail-item"><%= Category1.find(@money.item_name8_id).name %></th>
-          <td class="detail-value"><%= if @money.payment10_money.nil?
-          "--"
-          else
-          @money.payment10_money.to_s(:delimited)
-          end %></td>
+          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= Category1.find(@money.item_name8_id).name %></p></th>
+          <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+          <%= @money.payment10_money.to_s(:delimited) %></p></td>
         </tr>
+        <% end %>
+
+        <% if @money.item_name9_id.present? && @money.payment12_money.present? %>
         <tr>
-          <th class="detail-item"><%= Category1.find(@money.item_name9_id).name %></th>
-          <td class="detail-value"><%= if @money.payment12_money.nil?
-          "--"
-          else
-          @money.payment12_money.to_s(:delimited)
-          end %></td>
+          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= Category1.find(@money.item_name9_id).name %></p></th>
+          <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+          <%= @money.payment12_money.to_s(:delimited) %></p></td>
         </tr>
+        <% end %>
+
+        <% if @money.item_name10_id.present? && @money.payment13_money.present? %>
         <tr>
-          <th class="detail-item"><%= Category1.find(@money.item_name10_id).name %></th>
-          <td class="detail-value"><%= if @money.payment13_money.nil?
-          "--"
-          else
-          @money.payment13_money.to_s(:delimited)
-          end %></td>
+          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= Category1.find(@money.item_name10_id).name %></p></th>
+          <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+          <%= @money.payment13_money.to_s(:delimited) %></p></td>
         </tr>
+        <% end %>
+
+        <% if @money.item_name11_id.present? && @money.payment14_money.present? %>
         <tr>
-          <th class="detail-item"><%= Category1.find(@money.item_name11_id).name %></th>
-          <td class="detail-value"><%= if @money.payment14_money.nil?
-          "--"
-          else
-          @money.payment14_money.to_s(:delimited)
-          end %></td>
+          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= Category1.find(@money.item_name11_id).name %></p></th>
+          <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+          <%= @money.payment14_money.to_s(:delimited) %></p></td>
         </tr>
+        <% end %>
+
+        <% if @money.item_name13_id.present? && @money.payment16_money.present? %>
         <tr>
-          <th class="detail-item"><%= Category1.find(@money.item_name13_id).name %></th>
-          <td class="detail-value"><%= if @money.payment16_money.nil?
-          "--"
-          else
-          @money.payment16_money.to_s(:delimited)
-          end %></td>
+          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= Category1.find(@money.item_name13_id).name %></p></th>
+          <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+          <%= @money.payment16_money.to_s(:delimited) %></p></td>
         </tr>
+        <% end %>
+
+        <% if @money.item_name3_self.present? && @money.payment11_money.present? %>
         <tr>
-          <th class="detail-item"><%= @money.item_name3_self %></th>
-          <td class="detail-value"><%= if @money.payment11_money.nil?
-          "--"
-          else
-          @money.payment11_money.to_s(:delimited)
-          end %></td>
+          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= @money.item_name3_self %></p></th>
+          <td class="detail-value"><p id="percentage<%= percentageCnt %>">
+          <%= @money.payment11_money.to_s(:delimited) %></p></td>
         </tr>
-                <tr>
+        <% end %>
+
+        <tr>
           <th class="detail-item1">合計</th>
           <td class="detail-value1">
           <%= (
@@ -323,7 +333,7 @@
         <tr>
           <th class="detail-item1">支出総合計</th>
           <td class="detail-value1">
-          <%= (@money.payment1_money + 
+          <% (total = @money.payment1_money + 
           if @money.payment2_money.nil?
             0
           else
@@ -398,11 +408,433 @@
              0
            else
              @money.payment16_money
-          end).to_s(:delimited) %></td>
+          end) %>
+          <%= total.to_s(:delimited) %></td>
         </tr>
       </tbody>
     </table>
+    <div class="chart-wrapper">
+      <div [hidden]="chart === null">
+        <canvas id="myChart"></canvas>
+        <p class="chart-center">支出<br>¥<%= total.to_s(:delimited) %></p>
+      </div>
+    </div>
   </div>
 </div>
+<%# 円グラフ -----------------------------------------------------------------------------------------------------------------%>
+<script>
+  window.onload = function () {
+    const ctx = document.getElementById('myChart')
+
+    function removeComma(number) {
+      var removed = number.replace(/,/g, '');
+      return parseInt(removed, 10);
+    }
+
+    let percentage2value;
+    let percentage3value;
+    let percentage4value;
+    let percentage5value;
+    let percentage6value;
+    let percentage7value;
+    let percentage8value;
+    let percentage9value;
+    let percentage10value;
+    let percentage11value;
+    let percentage12value;
+    let percentage13value;
+    let percentage14value;
+    let percentage15value;
+    let percentage16value;
+    let result2;
+    let result3;
+    let result4;
+    let result5;
+    let result6;
+    let result7;
+    let result8;
+    let result9;
+    let result10;
+    let result11;
+    let result12;
+    let result13;
+    let result14;
+    let result15;
+    let result16;
+
+    const percentage1 = document.getElementById('percentage1')
+    const percentage1value = percentage1.innerText;
+    const result1 = removeComma(percentage1value);
+    const percentage2 = document.getElementById('percentage2')
+    if (percentage2 != null) {
+      percentage2value = percentage2.innerText;
+      result2 = removeComma(percentage2value);
+    }
+    const percentage3 = document.getElementById('percentage3')
+    if (percentage3 != null) {
+       percentage3value = percentage3.innerText;
+       result3 = removeComma(percentage3value);
+    }
+    const percentage4 = document.getElementById('percentage4')
+    if (percentage4 != null) {
+       percentage4value = percentage4.innerText;
+       result4 = removeComma(percentage4value);
+    }
+    const percentage5 = document.getElementById('percentage5')
+    if (percentage5 != null) {
+       percentage5value = percentage5.innerText;
+       result5 = removeComma(percentage5value);
+    }
+    const percentage6 = document.getElementById('percentage6')
+    if (percentage6 != null) {
+       percentage6value = percentage6.innerText;
+       result6 = removeComma(percentage6value);
+    }
+    const percentage7 = document.getElementById('percentage7')
+    if (percentage7 != null) {
+       percentage7value = percentage7.innerText;
+       result7 = removeComma(percentage7value);
+    }
+    const percentage8 = document.getElementById('percentage8')
+    if (percentage8 != null) {
+       percentage8value = percentage8.innerText;
+       result8 = removeComma(percentage8value);
+    }
+    const percentage9 = document.getElementById('percentage9')
+    if (percentage9 != null) {
+       percentage9value = percentage9.innerText;
+       result9 = removeComma(percentage9value);
+    }
+    const percentage10 = document.getElementById('percentage10')
+    if (percentage10 != null) {
+       percentage10value = percentage10.innerText;
+       result10 = removeComma(percentage10value);
+    }
+    const percentage11 = document.getElementById('percentage11')
+    if (percentage11 != null) {
+       percentage11value = percentage11.innerText;
+       result11 = removeComma(percentage11value);
+    }
+    const percentage12 = document.getElementById('percentage12')
+    if (percentage12 != null) {
+       percentage12value = percentage12.innerText;
+       result12 = removeComma(percentage12value);
+    }
+    const percentage13 = document.getElementById('percentage13')
+    if (percentage13 != null) {
+       percentage13value = percentage13.innerText;
+       result13 = removeComma(percentage13value);
+    }
+    const percentage14 = document.getElementById('percentage14')
+    if (percentage14 != null) {
+       percentage14value = percentage14.innerText;
+       result14 = removeComma(percentage14value);
+    }
+    const percentage15 = document.getElementById('percentage15')
+    if (percentage15 != null) {
+       percentage15value = percentage15.innerText;
+       result15 = removeComma(percentage15value);
+    }
+    const percentage16 = document.getElementById('percentage16')
+    if (percentage16 != null) {
+       percentage16value = percentage16.innerText;
+       result16 = removeComma(percentage16value);
+    }
+    let key2value;
+    let key3value;
+    let key4value;
+    let key5value;
+    let key6value;
+    let key7value;
+    let key8value;
+    let key9value;
+    let key10value;
+    let key11value;
+    let key12value;
+    let key13value;
+    let key14value;
+    let key15value;
+    let key16value;
+
+    const key1 = document.getElementById('key1')
+    const key1value = key1.innerText;
+    const key2 = document.getElementById('key2')
+    if (key2 != null ) {
+    key2value = key2.innerText;
+    }
+    const key3 = document.getElementById('key3')
+    if (key3 != null) {
+    key3value = key3.innerText;
+    }
+    const key4 = document.getElementById('key4')
+    if (key4 != null) {
+    key4value = key4.innerText;
+    }
+    const key5 = document.getElementById('key5')
+    if (key5 != null) {
+    key5value = key5.innerText;
+    }
+    const key6 = document.getElementById('key6')
+    if (key6 != null) {
+    key6value = key6.innerText;
+    }
+    const key7 = document.getElementById('key7')
+    if (key7 != null) {
+    key7value = key7.innerText;
+    }
+    const key8 = document.getElementById('key8')
+    if (key8 != null) {
+    key8value = key8.innerText;
+    }
+    const key9 = document.getElementById('key9')
+    if (key9 != null) {
+    key9value = key9.innerText;
+    }
+    const key10 = document.getElementById('key10')
+    if (key10 != null) {
+    key10value = key10.innerText;
+    }
+    const key11 = document.getElementById('key11')
+    if (key11 != null) {
+    key11value = key11.innerText;
+    }
+    const key12 = document.getElementById('key12')
+    if (key12 != null) {
+    key12value = key12.innerText;
+    }
+    const key13 = document.getElementById('key13')
+    if (key13 != null) {
+    key13value = key13.innerText;
+    }
+    const key14 = document.getElementById('key14')
+    if (key14 != null) {
+    key14value = key14.innerText;
+    }
+    const key15 = document.getElementById('key15')
+    if (key15 != null) {
+    key15value = key15.innerText;
+    }
+    const key16 = document.getElementById('key16')
+    if (key16 != null) {
+    key16value = key16.innerText;
+    }
+
+    const backgroundColor1 = 'rgb(0, 255, 255)' // aqua
+    const backgroundColor2 = 'rgb(255, 160, 122)' //salmon
+    const backgroundColor3 = 'rgb(255, 69, 0)' //orange
+    const backgroundColor4 = 'rgb(255, 215, 0)' //yellow
+    const backgroundColor5 = 'rgb(173, 255, 47)' // greenyellow
+    const backgroundColor6 = 'rgb(60, 179, 113)' // mediumseagreen
+    const backgroundColor7 = 'rgb(0, 100, 0)' // darkgreen
+    const backgroundColor8 = 'rgb(65, 105, 225)' // royalblue
+    const backgroundColor9 = 'rgb(221, 160, 221)' // plum
+    const backgroundColor10 = 'rgb(255, 0, 255)' // magenta
+    const backgroundColor11 = 'rgb(138, 43, 226)' // blueviolet
+    const backgroundColor12 = 'rgb(188, 143, 143)' // rosybrown
+    const backgroundColor13 = 'rgb(184, 134, 11)' // darkgoldenrod
+    const backgroundColor14 = 'rgb(139, 69, 19)' // saddlebrown
+    const backgroundColor15 = 'rgb(128, 0, 0)' // red
+    const backgroundColor16 = 'rgb(255, 255, 240)' // ivory
+
+    //percentageCnt = MAX16
+    switch ('<%= percentageCnt - 1 %>') {
+      case '15':
+        new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: [key1value, key2value, key3value, key4value, key5value, key6value, key7value,key8value, key9value, key10value, key11value, key12value, key13value, key14value, key15value],
+            datasets: [{
+              data: [result1, result2, result3, result4, result5, result6, result7, result8, result9, result10,result11, result12, result13, result14, result15],
+              backgroundColor: [backgroundColor1,backgroundColor2,backgroundColor3,backgroundColor4,backgroundColor5,backgroundColor6,backgroundColor7,backgroundColor8,backgroundColor9,backgroundColor10,backgroundColor11,backgroundColor12,backgroundColor13,backgroundColor14,backgroundColor15]
+            }]
+          }
+        })
+        break
+      case '14':
+        new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: [key1value,key2value,key3value,key4value,key5value,key6value,key7value,key8value,key9value,key10value,key11value,key12value,key13value,key14value],
+            datasets: [{
+              data: [result1,result2,result3,result4,result5,result6,result7,result8,result9,result10,result11,result12,result13,result14],
+              backgroundColor: [backgroundColor1,backgroundColor2,backgroundColor3,backgroundColor4,backgroundColor5,backgroundColor6,backgroundColor7,backgroundColor8,backgroundColor9,backgroundColor10,backgroundColor11,backgroundColor12,backgroundColor13,backgroundColor14]
+            }]
+          }
+        })
+        break
+      case '13':
+        new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: [key1value,key2value,key3value,key4value,key5value,key6value,key7value,key8value,key9value,key10value,key11value,key12value,key13value],
+            datasets: [{
+              data: [result1,result2,result3,result4,result5,result6,result7,result8,result9,result10,result11,result12,result13],
+              backgroundColor: [backgroundColor1,backgroundColor2,backgroundColor3,backgroundColor4,backgroundColor5,backgroundColor6,backgroundColor7,backgroundColor8,backgroundColor9,backgroundColor10,backgroundColor11,backgroundColor12,backgroundColor13]
+            }]
+          }
+        })
+        break
+      case '12':
+        new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: [key1value,key2value,key3value,key4value,key5value,key6value,key7value,key8value,key9value,key10value,key11value,key12value],
+            datasets: [{
+              data: [result1,result2,result3,result4,result5,result6,result7,result8,result9,result10,result11,result12],
+              backgroundColor: [backgroundColor1,backgroundColor2,backgroundColor3,backgroundColor4,backgroundColor5,backgroundColor6,backgroundColor7,backgroundColor8,backgroundColor9,backgroundColor10,backgroundColor11,backgroundColor12]
+            }]
+          }
+        })
+        break
+      case '11':
+        new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: [key1value,key2value,key3value,key4value,key5value,key6value,key7value,key8value,key9value,key10value,key11value],
+            datasets: [{
+              data: [result1,result2,result3,result4,result5,result6,result7,result8,result9,result10,result11],
+              backgroundColor: [backgroundColor1,backgroundColor2,backgroundColor3,backgroundColor4,backgroundColor5,backgroundColor6,backgroundColor7,backgroundColor8,backgroundColor9,backgroundColor10,backgroundColor11]
+            }]
+          }
+        })
+        break
+      case '10':
+        new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: [key1value,key2value,key3value,key4value,key5value,key6value,key7value,key8value,key9value,key10value],
+            datasets: [{
+              data: [result1,result2,result3,result4,result5,result6,result7,result8,result9,result10],
+              backgroundColor: [backgroundColor1,backgroundColor2,backgroundColor3,backgroundColor4,backgroundColor5,backgroundColor6,backgroundColor7,backgroundColor8,backgroundColor9,backgroundColor10]
+            }]
+          }
+        })
+        break
+      case '9':
+        new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: [key1value,key2value,key3value,key4value,key5value,key6value,key7value,key8value,key9value],
+            datasets: [{
+              data: [result1,result2,result3,result4,result5,result6,result7,result8,result9],
+              backgroundColor: [backgroundColor1,backgroundColor2,backgroundColor3,backgroundColor4,backgroundColor5,backgroundColor6,backgroundColor7,backgroundColor8,backgroundColor9]
+            }]
+          }
+        })
+        break
+      case '8':
+        new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: [key1value,key2value,key3value,key4value,key5value,key6value,key7value,key8value],
+            datasets: [{
+              data: [result1,result2,result3,result4,result5,result6,result7,result8],
+              backgroundColor: [backgroundColor1,backgroundColor2,backgroundColor3,backgroundColor4,backgroundColor5,backgroundColor6,backgroundColor7,backgroundColor8]
+            }]
+          }
+        })
+        break
+      case '7':
+        new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: [key1value,key2value,key3value,key4value,key5value,key6value,key7value],
+            datasets: [{
+              data: [result1,result2,result3,result4,result5,result6,result7],
+              backgroundColor: [backgroundColor1,backgroundColor2,backgroundColor3,backgroundColor4,backgroundColor5,backgroundColor6,backgroundColor7]
+            }]
+          }
+        })
+        break
+      case '6':
+        new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: [key1value,key2value,key3value,key4value,key5value,key6value],
+            datasets: [{
+              data: [result1,result2,result3,result4,result5,result6],
+              backgroundColor: [backgroundColor1,backgroundColor2,backgroundColor3,backgroundColor4,backgroundColor5,backgroundColor6]
+            }]
+          }
+        })
+        break
+      case '5':
+        new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: [key1value,key2value,key3value,key4value,key5value],
+            datasets: [{
+              data: [result1,result2,result3,result4,result5],
+              backgroundColor: [backgroundColor1,backgroundColor2,backgroundColor3,backgroundColor4,backgroundColor5]
+            }]
+          }
+        })
+        break
+      case '4':
+        new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: [key1value,key2value,key3value,key4value],
+            datasets: [{
+              data: [result1,result2,result3,result4],
+              backgroundColor: [backgroundColor1,backgroundColor2,backgroundColor3,backgroundColor4]
+            }]
+          }
+        })
+        break
+      case '3':
+        new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: [key1value,key2value,key3value],
+            datasets: [{
+              data: [result1,result2,result3],
+              backgroundColor: [backgroundColor1,backgroundColor2,backgroundColor3]
+            }]
+          }
+        })
+        break
+      case '2':
+        new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: [key1value,key2value],
+            datasets: [{
+              data: [result1,result2],
+              backgroundColor: [backgroundColor1,backgroundColor2]
+            }]
+          }
+        })
+        break
+      case '1':
+        new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: [key1value],
+            datasets: [{
+              data: [result1],
+              backgroundColor: [backgroundColor1]
+            }]
+          }
+        })
+        break
+      default:
+        //16の時はここ
+        new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: [key1value, key2value, key3value, key4value, key5value, key6value, key7value,key8value, key9value, key10value, key11value, key12value, key13value, key14value, key15value,key16value],
+            datasets: [{
+              data: [result1, result2, result3, result4, result5, result6, result7, result8, result9, result10,result11, result12, result13, result14, result15, result16],
+              backgroundColor: [backgroundColor1,backgroundColor2,backgroundColor3,backgroundColor4,backgroundColor5,backgroundColor6,backgroundColor7,backgroundColor8,backgroundColor9,backgroundColor10,backgroundColor11,backgroundColor12,backgroundColor13,backgroundColor14,backgroundColor15,backgroundColor16]
+            }]
+          }
+        })
+        break
+      }
+}
+</script>
+<%# /円グラフ -----------------------------------------------------------------------------------------------------------------%>
+
 
 <%= render "shared/footer" %>

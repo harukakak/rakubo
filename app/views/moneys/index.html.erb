@@ -64,7 +64,6 @@
   <div class='item-contents'>
     <h2 class='title'>管理簿一覧</h2>
     <ul class='item-lists'>
-
       <% @moneys.each do |money| %>
         <% if user_signed_in? && current_user.id == money.user_id %>
           <li class='list'>
