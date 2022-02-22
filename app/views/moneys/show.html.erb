@@ -1,6 +1,23 @@
 <%= render "shared/header" %>
 
-<% percentageCnt = 1 %>
+  <% itemValue = Array.new() %>
+  <% moneyValue = [] %>
+
+    <% @res.each do |data| %>
+      <%#アイテム名%>
+      <% if data.to_hash["item_id"] == "1" %>
+        <% itemValue.push(Category.find(data.to_hash["item_id"]).name) %>
+      <% elsif (data.to_hash["item_id"] <= '12' && 
+               data.to_hash["item_id"] >= '10' ) ||
+               (data.to_hash["item_id"] <= '9'  &&
+               data.to_hash["item_id"] >= '2') %>
+        <% itemValue.push(Category1.find(data.to_hash["item_id"]).name) %>
+      <% else %>
+        <% itemValue.push(Regexp.escape(data.to_hash["item_id"]))%>
+      <% end %>
+      <%#各種合計%>
+      <% moneyValue.push(data.to_hash["Kei"]) %>
+    <% end %>
 
 <div class="item-show">
   <div class="item-box">
@@ -68,23 +85,23 @@
 
         <% if @money.item_name1_id.present? && @money.payment1_money.present? %>
         <tr>
-          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= Category.find(@money.item_name1_id).name %></p></th>
-          <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>><%= @money.payment1_money.to_s(:delimited) %></p></td>
+          <th class="detail-item"><p><%= Category.find(@money.item_name1_id).name %></p></th>
+          <td class="detail-value"><p><%= @money.payment1_money.to_s(:delimited) %></p></td>
         </tr>
         <% end %>
 
         <% if @money.item_name2_id.present? && @money.payment2_money.present? %>
         <tr>
-          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= Category1.find(@money.item_name2_id).name %></p></th>
-          <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+          <th class="detail-item"><p><%= Category1.find(@money.item_name2_id).name %></p></th>
+          <td class="detail-value"><p>
           <%= @money.payment2_money.to_s(:delimited) %></p></td>
         </tr>
         <% end %>
 
         <% if @money.item_name2_self.present? && @money.payment5_money.present? %>
         <tr>
-          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= @money.item_name2_self %></p></th>
-          <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+          <th class="detail-item"><p><%= @money.item_name2_self %></p></th>
+          <td class="detail-value"><p>
           <%= @money.payment5_money.to_s(:delimited) %></p></td>
         </tr>
         <% end %>
@@ -122,32 +139,32 @@
 
         <% if @money.item_name3_id.present? && @money.payment3_money.present? %>
         <tr>
-          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= Category1.find(@money.item_name3_id).name %></p></th>
-          <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+          <th class="detail-item"><p><%= Category1.find(@money.item_name3_id).name %></p></th>
+          <td class="detail-value"><p>
           <%= @money.payment3_money.to_s(:delimited) %></p></td>
         </tr>
         <% end %>
 
         <% if @money.item_name4_id.present? && @money.payment4_money.present? %>
         <tr>
-          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= Category1.find(@money.item_name4_id).name %></p></th>
-          <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+          <th class="detail-item"><p><%= Category1.find(@money.item_name4_id).name %></p></th>
+          <td class="detail-value"><p>
           <%= @money.payment4_money.to_s(:delimited) %></p></td>
         </tr>
         <% end %>
 
         <% if @money.item_name5_id.present? && @money.payment6_money.present? %>
         <tr>
-          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= Category1.find(@money.item_name5_id).name %></p></th>
-          <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+          <th class="detail-item"><p><%= Category1.find(@money.item_name5_id).name %></p></th>
+          <td class="detail-value"><p>
           <%= @money.payment6_money.to_s(:delimited) %></p></td>
         </tr>
         <% end %>
 
         <% if @money.item_name6_id.present? && @money.payment7_money.present? %>
         <tr>
-          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= Category1.find(@money.item_name6_id).name %></p></th>
-          <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+          <th class="detail-item"><p><%= Category1.find(@money.item_name6_id).name %></p></th>
+          <td class="detail-value"><p>
           <%= @money.payment7_money.to_s(:delimited) %></p></td>
         </tr>
         <% end %>
@@ -155,24 +172,24 @@
         
         <% if @money.item_name7_id.present? && @money.payment9_money.present? %>
           <tr>
-            <th class="detail-item"><p id="key<%= percentageCnt %>"><%= Category1.find(@money.item_name7_id).name %></p></th>
-            <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+            <th class="detail-item"><p><%= Category1.find(@money.item_name7_id).name %></p></th>
+            <td class="detail-value"><p>
             <%= @money.payment9_money.to_s(:delimited) %></p></td>
           </tr>
         <% end %>
 
         <% if @money.item_name12_id.present? && @money.payment15_money.present? %>
           <tr>
-            <th class="detail-item"><p id="key<%= percentageCnt %>"><%= Category1.find(@money.item_name12_id).name %></p></th>
-            <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+            <th class="detail-item"><p><%= Category1.find(@money.item_name12_id).name %></p></th>
+            <td class="detail-value"><p>
             <%= @money.payment15_money.to_s(:delimited) %></p></td>
           </tr>
         <% end %>
 
         <% if @money.item_name1_self.present? && @money.payment8_money.present? %>
         <tr>
-          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= @money.item_name1_self %></p></th>
-          <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+          <th class="detail-item"><p><%= @money.item_name1_self %></p></th>
+          <td class="detail-value"><p>
           <%= @money.payment8_money.to_s(:delimited) %></p></td>
         </tr>
         <% end %>
@@ -235,48 +252,48 @@
 
         <% if @money.item_name8_id.present? && @money.payment10_money.present? %>
         <tr>
-          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= Category1.find(@money.item_name8_id).name %></p></th>
-          <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+          <th class="detail-item"><p><%= Category1.find(@money.item_name8_id).name %></p></th>
+          <td class="detail-value"><p>
           <%= @money.payment10_money.to_s(:delimited) %></p></td>
         </tr>
         <% end %>
 
         <% if @money.item_name9_id.present? && @money.payment12_money.present? %>
         <tr>
-          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= Category1.find(@money.item_name9_id).name %></p></th>
-          <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+          <th class="detail-item"><p><%= Category1.find(@money.item_name9_id).name %></p></th>
+          <td class="detail-value"><p>
           <%= @money.payment12_money.to_s(:delimited) %></p></td>
         </tr>
         <% end %>
 
         <% if @money.item_name10_id.present? && @money.payment13_money.present? %>
         <tr>
-          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= Category1.find(@money.item_name10_id).name %></p></th>
-          <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+          <th class="detail-item"><p><%= Category1.find(@money.item_name10_id).name %></p></th>
+          <td class="detail-value"><p>
           <%= @money.payment13_money.to_s(:delimited) %></p></td>
         </tr>
         <% end %>
 
         <% if @money.item_name11_id.present? && @money.payment14_money.present? %>
         <tr>
-          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= Category1.find(@money.item_name11_id).name %></p></th>
-          <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+          <th class="detail-item"><p><%= Category1.find(@money.item_name11_id).name %></p></th>
+          <td class="detail-value"><p>
           <%= @money.payment14_money.to_s(:delimited) %></p></td>
         </tr>
         <% end %>
 
         <% if @money.item_name13_id.present? && @money.payment16_money.present? %>
         <tr>
-          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= Category1.find(@money.item_name13_id).name %></p></th>
-          <td class="detail-value"><p id="percentage<%= percentageCnt %>"<% percentageCnt = percentageCnt + 1 %>>
+          <th class="detail-item"><p><%= Category1.find(@money.item_name13_id).name %></p></th>
+          <td class="detail-value"><p>
           <%= @money.payment16_money.to_s(:delimited) %></p></td>
         </tr>
         <% end %>
 
         <% if @money.item_name3_self.present? && @money.payment11_money.present? %>
         <tr>
-          <th class="detail-item"><p id="key<%= percentageCnt %>"><%= @money.item_name3_self %></p></th>
-          <td class="detail-value"><p id="percentage<%= percentageCnt %>">
+          <th class="detail-item"><p><%= @money.item_name3_self %></p></th>
+          <td class="detail-value">
           <%= @money.payment11_money.to_s(:delimited) %></p></td>
         </tr>
         <% end %>
@@ -431,21 +448,7 @@
       return parseInt(removed, 10);
     }
 
-    let percentage2value;
-    let percentage3value;
-    let percentage4value;
-    let percentage5value;
-    let percentage6value;
-    let percentage7value;
-    let percentage8value;
-    let percentage9value;
-    let percentage10value;
-    let percentage11value;
-    let percentage12value;
-    let percentage13value;
-    let percentage14value;
-    let percentage15value;
-    let percentage16value;
+    let result1;
     let result2;
     let result3;
     let result4;
@@ -461,85 +464,7 @@
     let result14;
     let result15;
     let result16;
-
-    const percentage1 = document.getElementById('percentage1')
-    const percentage1value = percentage1.innerText;
-    const result1 = removeComma(percentage1value);
-    const percentage2 = document.getElementById('percentage2')
-    if (percentage2 != null) {
-      percentage2value = percentage2.innerText;
-      result2 = removeComma(percentage2value);
-    }
-    const percentage3 = document.getElementById('percentage3')
-    if (percentage3 != null) {
-       percentage3value = percentage3.innerText;
-       result3 = removeComma(percentage3value);
-    }
-    const percentage4 = document.getElementById('percentage4')
-    if (percentage4 != null) {
-       percentage4value = percentage4.innerText;
-       result4 = removeComma(percentage4value);
-    }
-    const percentage5 = document.getElementById('percentage5')
-    if (percentage5 != null) {
-       percentage5value = percentage5.innerText;
-       result5 = removeComma(percentage5value);
-    }
-    const percentage6 = document.getElementById('percentage6')
-    if (percentage6 != null) {
-       percentage6value = percentage6.innerText;
-       result6 = removeComma(percentage6value);
-    }
-    const percentage7 = document.getElementById('percentage7')
-    if (percentage7 != null) {
-       percentage7value = percentage7.innerText;
-       result7 = removeComma(percentage7value);
-    }
-    const percentage8 = document.getElementById('percentage8')
-    if (percentage8 != null) {
-       percentage8value = percentage8.innerText;
-       result8 = removeComma(percentage8value);
-    }
-    const percentage9 = document.getElementById('percentage9')
-    if (percentage9 != null) {
-       percentage9value = percentage9.innerText;
-       result9 = removeComma(percentage9value);
-    }
-    const percentage10 = document.getElementById('percentage10')
-    if (percentage10 != null) {
-       percentage10value = percentage10.innerText;
-       result10 = removeComma(percentage10value);
-    }
-    const percentage11 = document.getElementById('percentage11')
-    if (percentage11 != null) {
-       percentage11value = percentage11.innerText;
-       result11 = removeComma(percentage11value);
-    }
-    const percentage12 = document.getElementById('percentage12')
-    if (percentage12 != null) {
-       percentage12value = percentage12.innerText;
-       result12 = removeComma(percentage12value);
-    }
-    const percentage13 = document.getElementById('percentage13')
-    if (percentage13 != null) {
-       percentage13value = percentage13.innerText;
-       result13 = removeComma(percentage13value);
-    }
-    const percentage14 = document.getElementById('percentage14')
-    if (percentage14 != null) {
-       percentage14value = percentage14.innerText;
-       result14 = removeComma(percentage14value);
-    }
-    const percentage15 = document.getElementById('percentage15')
-    if (percentage15 != null) {
-       percentage15value = percentage15.innerText;
-       result15 = removeComma(percentage15value);
-    }
-    const percentage16 = document.getElementById('percentage16')
-    if (percentage16 != null) {
-       percentage16value = percentage16.innerText;
-       result16 = removeComma(percentage16value);
-    }
+    let key1value;
     let key2value;
     let key3value;
     let key4value;
@@ -556,68 +481,56 @@
     let key15value;
     let key16value;
 
-    const key1 = document.getElementById('key1')
-    const key1value = key1.innerText;
-    const key2 = document.getElementById('key2')
-    if (key2 != null ) {
-    key2value = key2.innerText;
-    }
-    const key3 = document.getElementById('key3')
-    if (key3 != null) {
-    key3value = key3.innerText;
-    }
-    const key4 = document.getElementById('key4')
-    if (key4 != null) {
-    key4value = key4.innerText;
-    }
-    const key5 = document.getElementById('key5')
-    if (key5 != null) {
-    key5value = key5.innerText;
-    }
-    const key6 = document.getElementById('key6')
-    if (key6 != null) {
-    key6value = key6.innerText;
-    }
-    const key7 = document.getElementById('key7')
-    if (key7 != null) {
-    key7value = key7.innerText;
-    }
-    const key8 = document.getElementById('key8')
-    if (key8 != null) {
-    key8value = key8.innerText;
-    }
-    const key9 = document.getElementById('key9')
-    if (key9 != null) {
-    key9value = key9.innerText;
-    }
-    const key10 = document.getElementById('key10')
-    if (key10 != null) {
-    key10value = key10.innerText;
-    }
-    const key11 = document.getElementById('key11')
-    if (key11 != null) {
-    key11value = key11.innerText;
-    }
-    const key12 = document.getElementById('key12')
-    if (key12 != null) {
-    key12value = key12.innerText;
-    }
-    const key13 = document.getElementById('key13')
-    if (key13 != null) {
-    key13value = key13.innerText;
-    }
-    const key14 = document.getElementById('key14')
-    if (key14 != null) {
-    key14value = key14.innerText;
-    }
-    const key15 = document.getElementById('key15')
-    if (key15 != null) {
-    key15value = key15.innerText;
-    }
-    const key16 = document.getElementById('key16')
-    if (key16 != null) {
-    key16value = key16.innerText;
-    }
+switch ('<%= itemValue.count %>') {
+  case '16':
+    result16 = "<% moneyValue[15] %>";
+    key16value = "<%= itemValue[15] %>";
+  case '15':
+    result15 = "<% moneyValue[14] %>";
+    key15value = "<%= itemValue[14] %>";
+  case '14':
+    result14 = "<%= moneyValue[13] %>";
+    key14value = "<%= itemValue[13] %>";
+  case '13':
+    result13 = "<%= moneyValue[12] %>";
+    key13value = "<%= itemValue[12] %>";
+  case '12':
+    result12 = "<%= moneyValue[11] %>";
+    key12value = "<%= itemValue[11] %>";
+  case '11':
+    result11 = "<%= moneyValue[10] %>";
+    key11value = "<%= itemValue[10] %>";
+  case '10':
+    result10 = "<%= moneyValue[9] %>";
+    key10value = "<%= itemValue[9] %>";
+  case '9':
+    result9 = "<%= moneyValue[8] %>";
+    key9value = "<%= itemValue[8] %>";
+  case '8':
+    result8 = "<%= moneyValue[7] %>";
+    key8value = "<%= itemValue[7] %>";
+  case '7':
+    result7 = "<%= moneyValue[6] %>";
+    key7value = "<%= itemValue[6] %>";
+  case '6':
+    result6 = "<%= moneyValue[5] %>";
+    key6value = "<%= itemValue[5] %>";
+  case '5':
+    result5 = "<%= moneyValue[4] %>";
+    key5value = "<%= itemValue[4] %>";
+  case '4':
+    result4 = "<%= moneyValue[3] %>";
+    key4value = "<%= itemValue[3] %>";
+  case '3':
+    result3 = "<%= moneyValue[2] %>";
+    key3value = "<%= itemValue[2] %>";
+  case '2':
+    result2 = "<%= moneyValue[1] %>";
+    key2value = "<%= itemValue[1] %>";
+  case '1':
+    result1 = "<%= moneyValue[0] %>";
+    key1value = "<%= itemValue[0] %>";
+  }
 
     const backgroundColor1 = 'rgb(0, 255, 255)' // aqua
     const backgroundColor2 = 'rgb(255, 160, 122)' //salmon
@@ -637,7 +550,7 @@
     const backgroundColor16 = 'rgb(255, 255, 240)' // ivory
 
     //percentageCnt = MAX16
-    switch ('<%= percentageCnt - 1 %>') {
+    switch ('<%= itemValue.count %>') {
       case '15':
         new Chart(ctx, {
           type: 'doughnut',
@@ -834,7 +747,7 @@
       }
 }
 </script>
-<%# /円グラフ -----------------------------------------------------------------------------------------------------------------%>
+ <%# /円グラフ ----------------------------------------------------------------------------------------------------------------- %>
 
 
 <%= render "shared/footer" %>

@@ -93,6 +93,8 @@ class MoneysController < ApplicationController
   end
 
   def show
+    @res = selectsql()
+    p @res
   end
 
   def edit
@@ -114,6 +116,27 @@ class MoneysController < ApplicationController
     else
       redirect_to action: :index
     end
+  end
+
+  def selectsql
+    @res = ActiveRecord::Base.connection.select_all('select id,year_id,month_id,item_id,sum(money) as Kei from (
+      select id,year_id,month_id,item_name1_id as item_id,payment1_money as money from money
+      union all select id,year_id,month_id,item_name2_id,payment2_money from money
+      union all select id,year_id,month_id,item_name3_id,payment3_money from money
+      union all select id,year_id,month_id,item_name4_id,payment4_money from money
+      union all select id,year_id,month_id,item_name5_id,payment6_money from money
+      union all select id,year_id,month_id,item_name6_id,payment7_money from money
+      union all select id,year_id,month_id,item_name7_id,payment9_money from money
+      union all select id,year_id,month_id,item_name8_id,payment10_money from money
+      union all select id,year_id,month_id,item_name9_id,payment12_money from money
+      union all select id,year_id,month_id,item_name10_id,payment13_money from money
+      union all select id,year_id,month_id,item_name11_id,payment14_money from money
+      union all select id,year_id,month_id,item_name12_id,payment15_money from money
+      union all select id,year_id,month_id,item_name13_id,payment16_money from money
+      union all select id,year_id,month_id,item_name1_self,payment8_money from money
+      union all select id,year_id,month_id,item_name2_self,payment5_money from money
+      union all select id,year_id,month_id,item_name3_self,payment11_money from money) as table1 where money is not null and id = ' + params[:id] + ' group by year_id,month_id,item_id order by year_id,month_id,item_id,money;')
+    @res
   end
 
   private
