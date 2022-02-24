@@ -47,6 +47,10 @@ https://rakubo0424.herokuapp.com/
 
 ・ユーザーは国内向けのため、一目でエラー内容がわかるようにエラー文を日本語化した。
 
+・投稿詳細画面では支出をグラフ化し、一目で内訳がわかるようにした。
+
+・PCだけでなくスマートホンから利用する場合も想定し、レスポンシブ対応している。
+
 ## 洗い出した要件
 https://docs.google.com/spreadsheets/d/1RHoc-swkgrImLceivdY4ngvRlb524aPtwhxyJV6TQYQ/edit#gid=982722306
 
@@ -56,21 +60,30 @@ https://docs.google.com/spreadsheets/d/1RHoc-swkgrImLceivdY4ngvRlb524aPtwhxyJV6T
 ・トップ画面でユーザーの貯金額の合計が表示される
 [![Image from Gyazo](https://i.gyazo.com/3cc733caa966b2f431e4d9582d473596.jpg)](https://gyazo.com/3cc733caa966b2f431e4d9582d473596)
 ・トップ画面で今まで投稿した管理簿が一覧で見れる
-[![Image from Gyazo](https://i.gyazo.com/f6585a9e32281711e3ccd274d5a19668.png)](https://gyazo.com/f6585a9e32281711e3ccd274d5a19668)
+[![Image from Gyazo](https://i.gyazo.com/f0f7c3a3ca9f51c3b6e7d9b786109286.png)](https://gyazo.com/f0f7c3a3ca9f51c3b6e7d9b786109286)
 ・投稿画面では右下に収入と支出の差額が一目でわかるように計算機能をJava Scriptで実装
-[![Image from Gyazo](https://i.gyazo.com/880e417fcbe1ee97e0b350dfe8ca0ad8.png)](https://gyazo.com/880e417fcbe1ee97e0b350dfe8ca0ad8)
+[![Image from Gyazo](https://i.gyazo.com/39dca6e2c6e563843d0e2b280e8aed27.png)](https://gyazo.com/39dca6e2c6e563843d0e2b280e8aed27)
 ・投稿詳細画面では投稿した内容の確認と編集と削除ができる
-[![Image from Gyazo](https://i.gyazo.com/a9e552eb9dfaf53e9d33c57fbf96bd4e.png)](https://gyazo.com/a9e552eb9dfaf53e9d33c57fbf96bd4e)
+[![Image from Gyazo](https://i.gyazo.com/fa8c56f61640b42426b2b2a1d3f4279f.png)](https://gyazo.com/fa8c56f61640b42426b2b2a1d3f4279f)
 ・ユーザー詳細画面では投稿したメモや目標の確認と編集と削除ができる
-
+[![Image from Gyazo](https://i.gyazo.com/420fc56d96469107d94dc69f6d48fdc6.png)](https://gyazo.com/420fc56d96469107d94dc69f6d48fdc6)
 ・目標とメモを投稿できる
+[![Image from Gyazo](https://i.gyazo.com/96295e6b135dc1597b4dc730eeaa9056.png)](https://gyazo.com/96295e6b135dc1597b4dc730eeaa9056)
+・月毎の支出のカテゴリをグラフで確認できる
+[![Image from Gyazo](https://i.gyazo.com/b3e28fe51da367e197d64ec14422f349.png)](https://gyazo.com/b3e28fe51da367e197d64ec14422f349)
+・スマートホンでも表示が崩れないようにレスポンシブ対応
+[![Image from Gyazo](https://i.gyazo.com/464b5c0fc06f6167218430569dd4e68e.png)](https://gyazo.com/464b5c0fc06f6167218430569dd4e68e)
 
 ## 実装予定の機能
-月毎の支出のカテゴリ別の棒グラフ機能を実装中
-
+・トップ画面で貯金額に応じたお金の画像を表示予定
+・結合テストコードを実装予定
 
 ## データベース設計
-[![Image from Gyazo](https://i.gyazo.com/dd1e7c5eae09c4c0f36cb03f377c1713.png)](https://gyazo.com/dd1e7c5eae09c4c0f36cb03f377c1713)
+※縦に長いため、4分割にて掲載
+[![Image from Gyazo](https://i.gyazo.com/91c9ad5172af3dbaea83e0852f174f82.png)](https://gyazo.com/91c9ad5172af3dbaea83e0852f174f82)
+[![Image from Gyazo](https://i.gyazo.com/8194b9d8273bb1526baceecd49b3d596.png)](https://gyazo.com/8194b9d8273bb1526baceecd49b3d596)
+[![Image from Gyazo](https://i.gyazo.com/dc847d64b06beb586874aaedcafd69f2.png)](https://gyazo.com/dc847d64b06beb586874aaedcafd69f2)
+[![Image from Gyazo](https://i.gyazo.com/70f0735976a4dc09695f77cb7f53b9fb.png)](https://gyazo.com/70f0735976a4dc09695f77cb7f53b9fb)
 
 ## usersテーブル
 
@@ -145,10 +158,10 @@ https://docs.google.com/spreadsheets/d/1RHoc-swkgrImLceivdY4ngvRlb524aPtwhxyJV6T
 - has_many :moneys
 
 ## 画面遷移図
-[![Image from Gyazo](https://i.gyazo.com/703ff6d7b97edc1470fad12974fe807d.png)](https://gyazo.com/703ff6d7b97edc1470fad12974fe807d)
+[![Image from Gyazo](https://i.gyazo.com/fa62a51161a15fe147c70de189b65659.png)](https://gyazo.com/fa62a51161a15fe147c70de189b65659)
 
 ## 開発環境
-Ruby,Ruby on Rails,Java Script,Visual Studio Code,MySQL,Github,
+Ruby,Ruby on Rails,Java Script,Visual Studio Code,MySQL,Github
 
 ## ローカルでの動作方法
 以下のコマンドを順に実行。

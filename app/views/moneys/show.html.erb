@@ -7,7 +7,7 @@
       <%#アイテム名%>
       <% if data.to_hash["item_id"] == "1" %>
         <% itemValue.push(Category.find(data.to_hash["item_id"]).name) %>
-      <% elsif (data.to_hash["item_id"] <= '12' && 
+      <% elsif (data.to_hash["item_id"] <= '13' && 
                data.to_hash["item_id"] >= '10' ) ||
                (data.to_hash["item_id"] <= '9'  &&
                data.to_hash["item_id"] >= '2') %>
@@ -483,10 +483,10 @@
 
 switch ('<%= itemValue.count %>') {
   case '16':
-    result16 = "<% moneyValue[15] %>";
+    result16 = "<%= moneyValue[15] %>";
     key16value = "<%= itemValue[15] %>";
   case '15':
-    result15 = "<% moneyValue[14] %>";
+    result15 = "<%= moneyValue[14] %>";
     key15value = "<%= itemValue[14] %>";
   case '14':
     result14 = "<%= moneyValue[13] %>";
@@ -532,6 +532,8 @@ switch ('<%= itemValue.count %>') {
     key1value = "<%= itemValue[0] %>";
   }
 
+console.log(result15);
+
     const backgroundColor1 = 'rgb(0, 255, 255)' // aqua
     const backgroundColor2 = 'rgb(255, 160, 122)' //salmon
     const backgroundColor3 = 'rgb(255, 69, 0)' //orange
@@ -551,13 +553,26 @@ switch ('<%= itemValue.count %>') {
 
     //percentageCnt = MAX16
     switch ('<%= itemValue.count %>') {
+      default:
+        //16の時はここ
+        new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: [key1value, key2value, key3value, key4value, key5value, key6value, key7value,key8value, key9value, key10value, key11value, key12value, key13value, key14value, key15value,key16value],
+            datasets: [{
+              data: [result1,result2,result3,result4,result5,result6,result7,result8,result9,result10,result11,result12,result13,result14,result15,result16],
+              backgroundColor: [backgroundColor1,backgroundColor2,backgroundColor3,backgroundColor4,backgroundColor5,backgroundColor6,backgroundColor7,backgroundColor8,backgroundColor9,backgroundColor10,backgroundColor11,backgroundColor12,backgroundColor13,backgroundColor14,backgroundColor15,backgroundColor16]
+            }]
+          }
+        })
+      break
       case '15':
         new Chart(ctx, {
           type: 'doughnut',
           data: {
             labels: [key1value, key2value, key3value, key4value, key5value, key6value, key7value,key8value, key9value, key10value, key11value, key12value, key13value, key14value, key15value],
             datasets: [{
-              data: [result1, result2, result3, result4, result5, result6, result7, result8, result9, result10,result11, result12, result13, result14, result15],
+              data: [result1,result2,result3,result4,result5,result6,result7,result8,result9,result10,result11,result12,result13,result14,result15],
               backgroundColor: [backgroundColor1,backgroundColor2,backgroundColor3,backgroundColor4,backgroundColor5,backgroundColor6,backgroundColor7,backgroundColor8,backgroundColor9,backgroundColor10,backgroundColor11,backgroundColor12,backgroundColor13,backgroundColor14,backgroundColor15]
             }]
           }
@@ -731,23 +746,8 @@ switch ('<%= itemValue.count %>') {
           }
         })
         break
-      default:
-        //16の時はここ
-        new Chart(ctx, {
-          type: 'doughnut',
-          data: {
-            labels: [key1value, key2value, key3value, key4value, key5value, key6value, key7value,key8value, key9value, key10value, key11value, key12value, key13value, key14value, key15value,key16value],
-            datasets: [{
-              data: [result1, result2, result3, result4, result5, result6, result7, result8, result9, result10,result11, result12, result13, result14, result15, result16],
-              backgroundColor: [backgroundColor1,backgroundColor2,backgroundColor3,backgroundColor4,backgroundColor5,backgroundColor6,backgroundColor7,backgroundColor8,backgroundColor9,backgroundColor10,backgroundColor11,backgroundColor12,backgroundColor13,backgroundColor14,backgroundColor15,backgroundColor16]
-            }]
-          }
-        })
-        break
-      }
+    }
 }
 </script>
  <%# /円グラフ ----------------------------------------------------------------------------------------------------------------- %>
-
-
 <%= render "shared/footer" %>
