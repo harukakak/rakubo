@@ -64,3 +64,9 @@ gem 'active_hash'
 gem 'pry-rails'
 
 gem 'rails-i18n'
+
+gem 'factory_bot_rails'
+
+gem 'faker'
+
+gem 'rspec-rails', '~> 4.0.0'
