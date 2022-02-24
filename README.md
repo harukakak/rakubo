@@ -79,7 +79,7 @@ https://docs.google.com/spreadsheets/d/1RHoc-swkgrImLceivdY4ngvRlb524aPtwhxyJV6T
 ・結合テストコードを実装予定
 
 ## データベース設計
-※縦に長いため、4分割にて掲載
+※縦に長いため、4分割にて掲載 
 [![Image from Gyazo](https://i.gyazo.com/91c9ad5172af3dbaea83e0852f174f82.png)](https://gyazo.com/91c9ad5172af3dbaea83e0852f174f82)
 [![Image from Gyazo](https://i.gyazo.com/8194b9d8273bb1526baceecd49b3d596.png)](https://gyazo.com/8194b9d8273bb1526baceecd49b3d596)
 [![Image from Gyazo](https://i.gyazo.com/dc847d64b06beb586874aaedcafd69f2.png)](https://gyazo.com/dc847d64b06beb586874aaedcafd69f2)
