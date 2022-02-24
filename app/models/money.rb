@@ -13,11 +13,36 @@ class Money < ApplicationRecord
   validates :income_money, :payment1_money, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 },
                                             format: { with: /\A[0-9]+\z/, message: 'が無効です。半角数値で入力してください' }
 
-  # validates :income2_money,numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 },
-  #           presence: true,
-  #           format: { with: /\A[0-9]+\z/, message: "が無効です。半角数値で入力してください"}, if: :income2_money?
-
-  #  :income2_money, :payment2_money, :payment3_money, :payment4_money, :payment5_money,
-  #  :payment6_money, :payment7_money, :payment8_money, :payment9_money, :payment10_money, :payment11_money,
-  #  :payment12_money, :payment13_money, :payment14_money, :payment15_money, :payment16_money,
+  validates :income2_money,numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 },
+  format: { with: /\A[0-9]+\z/, message: "が無効です。半角数値で入力してください"}, if: Proc.new { |money| money.income2_money.present? }
+  validates :payment2_money,numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 },
+  format: { with: /\A[0-9]+\z/, message: "が無効です。半角数値で入力してください"}, if: Proc.new { |money| money.payment2_money.present? }
+  validates :payment3_money,numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 },
+  format: { with: /\A[0-9]+\z/, message: "が無効です。半角数値で入力してください"}, if: Proc.new { |money| money.payment3_money.present? }
+  validates :payment4_money,numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 },
+  format: { with: /\A[0-9]+\z/, message: "が無効です。半角数値で入力してください"}, if: Proc.new { |money| money.payment4_money.present? }
+  validates :payment5_money,numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 },
+  format: { with: /\A[0-9]+\z/, message: "が無効です。半角数値で入力してください"}, if: Proc.new { |money| money.payment5_money.present? }
+  validates :payment6_money,numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 },
+  format: { with: /\A[0-9]+\z/, message: "が無効です。半角数値で入力してください"}, if: Proc.new { |money| money.payment6_money.present? }
+  validates :payment7_money,numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 },
+  format: { with: /\A[0-9]+\z/, message: "が無効です。半角数値で入力してください"}, if: Proc.new { |money| money.payment7_money.present? }
+  validates :payment8_money,numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 },
+  format: { with: /\A[0-9]+\z/, message: "が無効です。半角数値で入力してください"}, if: Proc.new { |money| money.payment8_money.present? }
+  validates :payment9_money,numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 },
+  format: { with: /\A[0-9]+\z/, message: "が無効です。半角数値で入力してください"}, if: Proc.new { |money| money.payment9_money.present? }
+  validates :payment10_money,numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 },
+  format: { with: /\A[0-9]+\z/, message: "が無効です。半角数値で入力してください"}, if: Proc.new { |money| money.payment10_money.present? }
+  validates :payment11_money,numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 },
+  format: { with: /\A[0-9]+\z/, message: "が無効です。半角数値で入力してください"}, if: Proc.new { |money| money.payment11_money.present? }
+  validates :payment12_money,numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 },
+  format: { with: /\A[0-9]+\z/, message: "が無効です。半角数値で入力してください"}, if: Proc.new { |money| money.payment12_money.present? }
+  validates :payment13_money,numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 },
+  format: { with: /\A[0-9]+\z/, message: "が無効です。半角数値で入力してください"}, if: Proc.new { |money| money.payment13_money.present? }
+  validates :payment14_money,numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 },
+  format: { with: /\A[0-9]+\z/, message: "が無効です。半角数値で入力してください"}, if: Proc.new { |money| money.payment14_money.present? }
+  validates :payment15_money,numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 },
+  format: { with: /\A[0-9]+\z/, message: "が無効です。半角数値で入力してください"}, if: Proc.new { |money| money.payment15_money.present? }
+  validates :payment16_money,numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 },
+  format: { with: /\A[0-9]+\z/, message: "が無効です。半角数値で入力してください"}, if: Proc.new { |money| money.payment16_money.present? }
 end

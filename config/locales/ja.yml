@@ -10,3 +10,19 @@ ja:
         income_money: 収入1の金額
         payment1_money: 貯金額
         year_id: 投稿月
+        income2_money: 収入2の金額
+        payment2_money: 支出1の金額(2)
+        payment3_money: 支出1の金額(3)
+        payment4_money: 支出2の金額(1)
+        payment5_money: 支出2の金額(2)
+        payment6_money: 支出2の金額(3)
+        payment7_money: 支出2の金額(4)
+        payment8_money: 支出2の金額(5)
+        payment9_money: 支出2の金額(6)
+        payment10_money: 支出2の金額(7)
+        payment11_money: 支出3の金額(1)
+        payment12_money: 支出3の金額(2)
+        payment13_money: 支出3の金額(3)
+        payment14_money: 支出3の金額(4)
+        payment15_money: 支出3の金額(5)
+        payment16_money: 支出3の金額(6)
