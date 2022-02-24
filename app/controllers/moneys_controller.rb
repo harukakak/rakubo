@@ -93,7 +93,7 @@ class MoneysController < ApplicationController
   end
 
   def show
-    @res = selectsql()
+    @res = selectsql
     p @res
   end
 
