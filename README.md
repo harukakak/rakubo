@@ -80,7 +80,7 @@ https://docs.google.com/spreadsheets/d/1RHoc-swkgrImLceivdY4ngvRlb524aPtwhxyJV6T
 
 ## データベース設計
 ※縦に長いため、4分割にて掲載 
-[![Image from Gyazo](https://i.gyazo.com/91c9ad5172af3dbaea83e0852f174f82.png)](https://gyazo.com/91c9ad5172af3dbaea83e0852f174f82)
+[![Image from Gyazo](https://i.gyazo.com/084866d7aa02862567902be71eae52a5.png)](https://gyazo.com/084866d7aa02862567902be71eae52a5)
 [![Image from Gyazo](https://i.gyazo.com/8194b9d8273bb1526baceecd49b3d596.png)](https://gyazo.com/8194b9d8273bb1526baceecd49b3d596)
 [![Image from Gyazo](https://i.gyazo.com/dc847d64b06beb586874aaedcafd69f2.png)](https://gyazo.com/dc847d64b06beb586874aaedcafd69f2)
 [![Image from Gyazo](https://i.gyazo.com/70f0735976a4dc09695f77cb7f53b9fb.png)](https://gyazo.com/70f0735976a4dc09695f77cb7f53b9fb)
@@ -100,8 +100,8 @@ https://docs.google.com/spreadsheets/d/1RHoc-swkgrImLceivdY4ngvRlb524aPtwhxyJV6T
 
 | Column               | Type       | Options                        |
 | -------------------- | ---------- | ------------------------------ |
-| year                 | integer    | null: false                    |
-| month                | integer    | null: false                    |
+| year_id              | integer    | null: false                    |
+| month_id             | integer    | null: false                    |
 | income_account_name  | string     | null: false                    |
 | income_account2_name | string     |                                |
 | payment_account1_name| string     | null: false                    |

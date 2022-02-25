@@ -17,20 +17,6 @@ RSpec.describe User, type: :model do
       end
     end
     context '新規登録できない場合' do
-      it 'last_nameが空では登録できない' do
-      end
-      it 'first_nameが空では登録できない' do
-        
-      end
-      it 'last_name_kanaが空では登録できない' do
-        
-      end
-      it 'first_name_kanaが空では登録できない' do
-        
-      end
-      it 'birthdayが空では登録できない' do
-        
-      end
       it 'emailが空では登録できない' do
         @user.email = ''
         @user.valid?
@@ -86,18 +72,6 @@ RSpec.describe User, type: :model do
         @user.password_confirmation = '123456ｌ'
         @user.valid?
         expect(@user.errors.full_messages).to include('パスワードは不正な値です')
-      end
-      it '姓（全角）に半角文字が含まれていると登録できない' do
-        
-      end
-      it '名（全角）に半角文字が含まれていると登録できない' do
-        
-      end
-      it '姓（カナ）にカタカナ以外の文字（平仮名・漢字・英数字・記号）が含まれていると登録できない' do
-        
-      end
-      it '名（カナ）にカタカナ以外の文字（平仮名・漢字・英数字・記号）が含まれていると登録できない' do
-        
       end
     end
   end

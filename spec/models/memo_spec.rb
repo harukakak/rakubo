@@ -15,7 +15,7 @@ RSpec.describe Memo, type: :model do
       it 'ユーザーが紐付いていなければ投稿できない' do
         @memo.user = nil
         @memo.valid?
-        expect(@memo.errors.full_messages).to include('User must exist')
+        expect(@memo.errors.full_messages).to include('Userを入力してください')
       end
     end
   end

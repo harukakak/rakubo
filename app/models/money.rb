@@ -11,7 +11,7 @@ class Money < ApplicationRecord
             presence: true
   validates :year_id, uniqueness: { scope: [:month_id] }
   validates :income_money, :payment1_money, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 },
-                                            format: { with: /\A[0-9]+\z/, message: 'が無効です。半角数値で入力してください' }
+                                            format: { with: /\A[0-9]+\z/}
 
   validates :income2_money,numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 },
   format: { with: /\A[0-9]+\z/, message: "が無効です。半角数値で入力してください"}, if: Proc.new { |money| money.income2_money.present? }
