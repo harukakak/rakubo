@@ -51,6 +51,8 @@ https://rakubo0424.herokuapp.com/
 
 ・PCだけでなくスマートホンから利用する場合も想定し、レスポンシブ対応している。
 
+・不具合を未然に防ぐために単体/結合テストコードを実装している。
+
 ## 洗い出した要件
 https://docs.google.com/spreadsheets/d/1RHoc-swkgrImLceivdY4ngvRlb524aPtwhxyJV6TQYQ/edit#gid=982722306
 
@@ -76,7 +78,7 @@ https://docs.google.com/spreadsheets/d/1RHoc-swkgrImLceivdY4ngvRlb524aPtwhxyJV6T
 
 ## 実装予定の機能
 ・トップ画面で貯金額に応じたお金の画像を表示予定
-・結合テストコードを実装予定
+・投稿機能とメモ機能の結合テストコードを実装予定
 
 ## データベース設計
 ※縦に長いため、4分割にて掲載 
