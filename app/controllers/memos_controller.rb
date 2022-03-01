@@ -3,6 +3,7 @@ class MemosController < ApplicationController
 
   def index
     @memos = Memo.includes(:user)
+    @moneys = Money.includes(:user)
   end
 
   def new

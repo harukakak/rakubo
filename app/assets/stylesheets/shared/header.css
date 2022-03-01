@@ -19,10 +19,11 @@
 }
 
 .list-left {
-
   height: 8vh;
 }
-
+.list-left2 {
+  height: 100px;
+}
 .lists-right {
   display: flex;
   list-style: none;
