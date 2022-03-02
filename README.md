@@ -70,7 +70,7 @@ https://docs.google.com/spreadsheets/d/1RHoc-swkgrImLceivdY4ngvRlb524aPtwhxyJV6T
 ・投稿詳細画面では投稿した内容の確認と編集と削除ができる
 [![Image from Gyazo](https://i.gyazo.com/fa8c56f61640b42426b2b2a1d3f4279f.png)](https://gyazo.com/fa8c56f61640b42426b2b2a1d3f4279f)
 ・ユーザー詳細画面では投稿したメモや目標の確認と編集と削除ができる
-[![Image from Gyazo](https://i.gyazo.com/d5dfa46ee3bbdb9e8a53e57653c4bdbe.png)](https://gyazo.com/d5dfa46ee3bbdb9e8a53e57653c4bdbe)
+[![Image from Gyazo](https://i.gyazo.com/aa2b8b37912c097fd9a0723fd1c2406a.png)](https://gyazo.com/aa2b8b37912c097fd9a0723fd1c2406a)
 ・目標とメモを投稿できる
 [![Image from Gyazo](https://i.gyazo.com/96295e6b135dc1597b4dc730eeaa9056.png)](https://gyazo.com/96295e6b135dc1597b4dc730eeaa9056)
 ・月毎の支出のカテゴリをグラフで確認できる

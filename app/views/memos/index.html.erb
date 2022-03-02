@@ -7,14 +7,21 @@
       <% sumpay = sumpay + money.payment1_money %>
     <% end %>
   <% end %>
-  <% if sumpay > 1 && sumpay < 100000 %>
+
+  <% if sumpay > 1 && sumpay < 50000 %>
     <%= image_tag 'money1.png' ,class: "list-left2" %>
-  <% elsif sumpay >= 100000 && sumpay < 500000 %>
+  <% elsif sumpay >= 50000 && sumpay < 200000 %>
     <%= image_tag 'money2.png' ,class: "list-left2" %>
-  <% elsif sumpay >= 500000 && sumpay < 1000000 %>
+  <% elsif sumpay >= 200000 && sumpay < 500000 %>
     <%= image_tag 'money3.png' ,class: "list-left2" %>
-  <% elsif sumpay >= 1000000 && sumpay < 2000000 %>
+  <% elsif sumpay >= 500000 && sumpay < 700000 %>
     <%= image_tag 'money4.png' ,class: "list-left2" %>
+  <% elsif sumpay >= 700000 && sumpay < 1000000 %>
+    <%= image_tag 'money5.png' ,class: "list-left2" %>
+  <% elsif sumpay >= 1000000 && sumpay < 2000000 %>
+    <%= image_tag 'money6.png' ,class: "list-left2" %>
+  <% elsif sumpay >= 2000000 %>
+    <%= image_tag 'money7.png' ,class: "list-left2" %>
   <% end %>
 
   <% @flg = 0 %>
