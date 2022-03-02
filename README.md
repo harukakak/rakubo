@@ -53,6 +53,8 @@ https://rakubo0424.herokuapp.com/
 
 ・不具合を未然に防ぐために単体/結合テストコードを実装している。
 
+・貯金のモチベーションを上げるために、貯金額に応じてマイページのお金の画像の表示のされ方が変わるようにした。
+
 ## 洗い出した要件
 https://docs.google.com/spreadsheets/d/1RHoc-swkgrImLceivdY4ngvRlb524aPtwhxyJV6TQYQ/edit#gid=982722306
 
@@ -68,7 +70,7 @@ https://docs.google.com/spreadsheets/d/1RHoc-swkgrImLceivdY4ngvRlb524aPtwhxyJV6T
 ・投稿詳細画面では投稿した内容の確認と編集と削除ができる
 [![Image from Gyazo](https://i.gyazo.com/fa8c56f61640b42426b2b2a1d3f4279f.png)](https://gyazo.com/fa8c56f61640b42426b2b2a1d3f4279f)
 ・ユーザー詳細画面では投稿したメモや目標の確認と編集と削除ができる
-[![Image from Gyazo](https://i.gyazo.com/420fc56d96469107d94dc69f6d48fdc6.png)](https://gyazo.com/420fc56d96469107d94dc69f6d48fdc6)
+[![Image from Gyazo](https://i.gyazo.com/d5dfa46ee3bbdb9e8a53e57653c4bdbe.png)](https://gyazo.com/d5dfa46ee3bbdb9e8a53e57653c4bdbe)
 ・目標とメモを投稿できる
 [![Image from Gyazo](https://i.gyazo.com/96295e6b135dc1597b4dc730eeaa9056.png)](https://gyazo.com/96295e6b135dc1597b4dc730eeaa9056)
 ・月毎の支出のカテゴリをグラフで確認できる
@@ -77,7 +79,7 @@ https://docs.google.com/spreadsheets/d/1RHoc-swkgrImLceivdY4ngvRlb524aPtwhxyJV6T
 [![Image from Gyazo](https://i.gyazo.com/464b5c0fc06f6167218430569dd4e68e.png)](https://gyazo.com/464b5c0fc06f6167218430569dd4e68e)
 
 ## 実装予定の機能
-・トップ画面で貯金額に応じたお金の画像を表示予定
+・貯金額に応じたお金の画像の種類を追加予定
 ・投稿機能とメモ機能の結合テストコードを実装予定
 
 ## データベース設計
