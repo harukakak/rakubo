@@ -9,7 +9,7 @@ class Money < ApplicationRecord
   validates :year_id, :month_id, numericality: { other_than: 1, message: 'を選択してください' }
   validates :year_id, :month_id, :income_account_name, :payment_account1_name, :item_name1_id,
             presence: true
-  validates :year_id, uniqueness: { scope: [:month_id] }
+  validates :year_id, uniqueness: { scope: [:month_id, :user_id] }
   validates :income_money, :payment1_money, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 },
                                             format: { with: /\A[0-9]+\z/}
 
