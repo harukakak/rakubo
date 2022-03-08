@@ -79,8 +79,7 @@ https://docs.google.com/spreadsheets/d/1RHoc-swkgrImLceivdY4ngvRlb524aPtwhxyJV6T
 [![Image from Gyazo](https://i.gyazo.com/464b5c0fc06f6167218430569dd4e68e.png)](https://gyazo.com/464b5c0fc06f6167218430569dd4e68e)
 
 ## 実装予定の機能
-・貯金額に応じたお金の画像の種類を追加予定
-・投稿機能とメモ機能の結合テストコードを実装予定
+・投稿機能の結合テストコードを実装予定
 
 ## データベース設計
 ※縦に長いため、4分割にて掲載 
