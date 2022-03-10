@@ -14,12 +14,12 @@ app/assets/stylesheets/items/new.css %>
           年
         <span class="indispensable">必須</span>
       </div>
-      <%= f.collection_select(:year_id, Year.all, :id, :name, {}, {class:"select-box2", id:"item-status"}) %>
+      <%= f.collection_select(:year_id, Year.all, :id, :name, {}, {class:"select-box2", id:"item-year"}) %>
       <div class="weight-bold-text2">
           月
         <span class="indispensable">必須</span>
       </div>
-      <%= f.collection_select(:month_id, Month.all, :id, :name, {}, {class:"select-box2", id:"item-status"}) %>
+      <%= f.collection_select(:month_id, Month.all, :id, :name, {}, {class:"select-box2", id:"item-month"}) %>
     </div>
       <div class="weight-bold">収入1</div>
       <div class="weight-bold-text">

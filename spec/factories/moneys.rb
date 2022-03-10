@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :money do
-    year_id                   { 3 }
+    year_id                   { 2 }
     month_id                  { 2 }
     income_account_name       { Faker::Name.initials(number: 2) }
     income_account2_name      { Faker::Name.initials(number: 2) }
@@ -25,19 +25,19 @@ FactoryBot.define do
     payment14_money           { Faker::Number.number(digits: 5) }
     payment15_money           { Faker::Number.number(digits: 5) }
     payment16_money           { Faker::Number.number(digits: 5) }
-    item_name1_id             { 2 }
-    item_name2_id             { 2 }
-    item_name3_id             { 2 }
-    item_name4_id             { 2 }
-    item_name5_id             { 2 }
-    item_name6_id             { 2 }
-    item_name7_id             { 2 }
-    item_name8_id             { 2 }
-    item_name9_id             { 2 }
-    item_name10_id            { 2 }
-    item_name11_id            { 2 }
-    item_name12_id            { 2 }
-    item_name13_id            { 2 }
+    item_name1_id             { 1 }
+    item_name2_id             { 5 }
+    item_name3_id             { 6 }
+    item_name4_id             { 7 }
+    item_name5_id             { 8 }
+    item_name6_id             { 9 }
+    item_name7_id             { 10 }
+    item_name8_id             { 11 }
+    item_name9_id             { 12 }
+    item_name10_id            { 13 }
+    item_name11_id            { 4 }
+    item_name12_id            { 5 }
+    item_name13_id            { 6 }
     item_name1_self           { Faker::Name.initials(number: 2) }
     item_name2_self           { Faker::Name.initials(number: 2) }
     item_name3_self           { Faker::Name.initials(number: 2) }
