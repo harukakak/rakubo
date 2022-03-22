@@ -59,7 +59,8 @@ end
 RSpec.describe '管理簿編集', type: :system do
   before do
     @user = FactoryBot.create(:user)
-    @money = FactoryBot.create(:money)
+    @money1 = FactoryBot.create(:money)
+    @money2 = FactoryBot.create(:money)
   end
 
   def basic_pass(path)
@@ -67,31 +68,60 @@ RSpec.describe '管理簿編集', type: :system do
     password = ENV["BASIC_AUTH_PASSWORD"]
     visit "http://#{username}:#{password}@#{Capybara.current_session.server.host}:#{Capybara.current_session.server.port}#{path}"
   end
+
   context '編集ができるとき'do
     it 'ログインしたユーザーは投稿できる' do
-      # 投稿したユーザーでログインする
-      sign_in(@money.user)
+      # トップページに移動する
+      basic_pass root_path
+      visit root_path
+      # ログインする
+      visit new_user_session_path
+      fill_in 'email', with: @money1.user.email
+      fill_in 'password', with: @money1.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq(root_path)
       # 投稿記事をクリックして詳細を見る
+      visit money_path(@money1)
       # 「編集」へのリンクがあることを確認する
-      expect(
-        all('.more')[1].hover
-      ).to have_link '投稿の編集', href: edit_money_path(@money)
+      expect(page).to have_link '投稿の編集', href: edit_money_path(@money1)
       # 編集ページへ遷移する
-      visit edit_money_path(@money)
-      # すでに投稿済みの内容がフォームに入っていることを確認する
-      expect(
-        find('#money_text').value
-      ).to eq(@money.text)
+      visit edit_money_path(@money1)
       # 投稿内容を編集する
-      fill_in 'money_text', with: "#{@money.text}+編集したテキスト"
+      fill_in 'item-income', with: "#{@money1.income_account_name}+編集したテキスト"
       # 編集してもモデルのカウントは変わらないことを確認する
       expect{
         find('input[name="commit"]').click
       }.to change { Money.count }.by(0)
       # 詳細画面に遷移したことを確認する
-      expect(current_path).to eq(money_path(@money))
+      expect(current_path).to eq(money_path(@money1))
       # 先ほど変更した内容のツイートが存在することを確認する
-      expect(page).to have_content("#{@money.text}+編集したテキスト")
+      expect(page).to have_content("#{@money1.income_account_name}+編集したテキスト")
     end
   end
+
+  context 'ツイート編集ができないとき' do
+    it 'ログインしたユーザーは自分以外が投稿した編集画面には遷移できない' do
+      # トップページに移動する
+      basic_pass root_path
+      visit root_path
+      # ログインする
+      visit new_user_session_path
+      fill_in 'email', with: @money1.user.email
+      fill_in 'password', with: @money1.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq(root_path)
+      # マネー2へのリンクがないことを確認する
+      expect(page).to have_no_link '(@money2.payment1_money).to_s(:delimited)', href: money_path(@money2)
+    end
+    it 'ログインしていないとツイートの編集画面には遷移できない' do
+      # トップページに移動する
+      basic_pass root_path
+      visit root_path
+      # マネー1へのリンクがないことを確認する
+      expect(page).to have_no_link '(@money1.payment1_money).to_s(:delimited)', href: money_path(@money1)
+      # マネー2へのリンクがないことを確認する
+      expect(page).to have_no_link '(@money2.payment1_money).to_s(:delimited)', href: money_path(@money2)
+    end
+  end
+
 end
