@@ -123,5 +123,44 @@ RSpec.describe '管理簿編集', type: :system do
       expect(page).to have_no_link '(@money2.payment1_money).to_s(:delimited)', href: money_path(@money2)
     end
   end
+end
 
+RSpec.describe '投稿削除', type: :system do
+  before do
+    @user = FactoryBot.create(:user)
+    @money1 = FactoryBot.create(:money)
+    @money2 = FactoryBot.create(:money)
+  end
+
+  def basic_pass(path)
+    username = ENV["BASIC_AUTH_USER"]
+    password = ENV["BASIC_AUTH_PASSWORD"]
+    visit "http://#{username}:#{password}@#{Capybara.current_session.server.host}:#{Capybara.current_session.server.port}#{path}"
+  end
+
+  context '削除ができるとき' do
+    it 'ログインしたユーザーは自らが投稿した管理簿の削除ができる' do
+      # トップページに移動する
+      basic_pass root_path
+      visit root_path
+      # マネー１を投稿したユーザーでログインする
+      visit new_user_session_path
+      fill_in 'email', with: @money1.user.email
+      fill_in 'password', with: @money1.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq(root_path)
+      # 投稿記事をクリックして詳細を見る
+      visit money_path(@money1)
+      # マネー1に「削除」へのリンクがあることを確認する
+      expect(page).to have_link '削除', href: money_path(@money1)
+      # 投稿を削除するとレコードの数が1減ることを確認する
+      expect{
+        find_link('削除', href: money_path(@money1)).click
+      }.to change { Money.count }.by(-1)
+      # トップページに遷移していることを確認する
+      expect(current_path).to eq(root_path(@money1))
+      # トップページにはマネー1の内容が存在しないことを確認する
+      expect(page).to have_no_content("#{(@money1.payment1_money).to_s(:delimited)}")
+    end
+  end
 end
