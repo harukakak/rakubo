@@ -163,4 +163,20 @@ RSpec.describe '投稿削除', type: :system do
       expect(page).to have_no_content("#{(@money1.payment1_money).to_s(:delimited)}")
     end
   end
+
+  context '削除ができないとき' do
+    it 'ログインしたユーザーは自分以外が投稿した管理簿の削除ができない' do
+       # トップページに移動する
+       basic_pass root_path
+       visit root_path
+       # マネー１を投稿したユーザーでログインする
+       visit new_user_session_path
+       fill_in 'email', with: @money1.user.email
+       fill_in 'password', with: @money1.user.password
+       find('input[name="commit"]').click
+       expect(current_path).to eq(root_path)
+      # マネー2へのリンクがないことを確認する
+       expect(page).to have_no_link '(@money2.payment1_money).to_s(:delimited)', href: money_path(@money2)
+    end
+  end
 end
