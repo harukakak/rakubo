@@ -7,7 +7,7 @@
       <%#アイテム名%>
       <% if data.to_hash["item_id"] == "1" %>
         <% itemValue.push(Category.find(data.to_hash["item_id"]).name) %>
-      <% elsif (data.to_hash["item_id"] <= '13' && 
+      <% elsif (data.to_hash["item_id"] <= '14' && 
                data.to_hash["item_id"] >= '10' ) ||
                (data.to_hash["item_id"] <= '9'  &&
                data.to_hash["item_id"] >= '2') %>
